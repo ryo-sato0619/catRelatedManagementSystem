@@ -13,7 +13,7 @@ Module psql
         Builder.Port = 5432
         Builder.Username = "postgres"
         Builder.Password = "test"
-        Builder.Database = "postgres"
+        Builder.Database = "catdb"
 
         Dim conStr = Builder.ToString()
 
