@@ -1,4 +1,5 @@
 ﻿Public Class mainForm
+
     Private allTabs As New List(Of TabPage)
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -9,6 +10,22 @@
 
         ' 初期状態でタブページ0を表示し、他のタブを削除
         ShowTab(0)
+
+        'データべ‐スへの接続状況を確認後、接続作業
+        If psql.pgsqlCon.State = ConnectionState.Closed Then
+            psql.sqlSt()
+        End If
+
+        '必要なデータの取得
+        Dim query As String = "SELECT * FROM iteminventory"
+        Dim dt As DataTable = psql.sqlResultReturn(query)
+
+        'DataGridView1にデータをバインド
+        DataGridView1.DataSource = dt
+
+        'データベースの接続を閉じる
+        psql.sqlCl()
+
     End Sub
     '在庫管理ページの表示
     Private Sub inventoryButton_Click(sender As Object, e As EventArgs) Handles inventoryButton.Click
@@ -49,4 +66,5 @@
     Private Sub mainForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Application.Exit()
     End Sub
+
 End Class
