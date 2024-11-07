@@ -38,6 +38,8 @@ Partial Class mainForm
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.userdButton = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -61,6 +63,7 @@ Partial Class mainForm
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.SplitContainer1.Panel1.Controls.Add(Me.userdButton)
         Me.SplitContainer1.Panel1.Controls.Add(Me.userAddButton)
         Me.SplitContainer1.Panel1.Controls.Add(Me.logoutButton)
         Me.SplitContainer1.Panel1.Controls.Add(Me.itemAddButton)
@@ -80,7 +83,7 @@ Partial Class mainForm
         'userAddButton
         '
         Me.userAddButton.Font = New System.Drawing.Font("Meiryo UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.userAddButton.Location = New System.Drawing.Point(443, 83)
+        Me.userAddButton.Location = New System.Drawing.Point(583, 83)
         Me.userAddButton.Name = "userAddButton"
         Me.userAddButton.Size = New System.Drawing.Size(135, 50)
         Me.userAddButton.TabIndex = 6
@@ -100,7 +103,7 @@ Partial Class mainForm
         'itemAddButton
         '
         Me.itemAddButton.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.itemAddButton.Location = New System.Drawing.Point(300, 83)
+        Me.itemAddButton.Location = New System.Drawing.Point(442, 83)
         Me.itemAddButton.Name = "itemAddButton"
         Me.itemAddButton.Size = New System.Drawing.Size(135, 50)
         Me.itemAddButton.TabIndex = 3
@@ -110,7 +113,7 @@ Partial Class mainForm
         'deliveryAddButton
         '
         Me.deliveryAddButton.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.deliveryAddButton.Location = New System.Drawing.Point(159, 84)
+        Me.deliveryAddButton.Location = New System.Drawing.Point(301, 84)
         Me.deliveryAddButton.Name = "deliveryAddButton"
         Me.deliveryAddButton.Size = New System.Drawing.Size(135, 50)
         Me.deliveryAddButton.TabIndex = 2
@@ -120,7 +123,7 @@ Partial Class mainForm
         'inventoryButton
         '
         Me.inventoryButton.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.inventoryButton.Location = New System.Drawing.Point(18, 84)
+        Me.inventoryButton.Location = New System.Drawing.Point(160, 83)
         Me.inventoryButton.Name = "inventoryButton"
         Me.inventoryButton.Size = New System.Drawing.Size(135, 50)
         Me.inventoryButton.TabIndex = 1
@@ -140,6 +143,7 @@ Partial Class mainForm
         '
         'TabControl1
         '
+        Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
@@ -162,7 +166,7 @@ Partial Class mainForm
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1172, 454)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "在庫管理"
+        Me.TabPage1.Text = "在庫一覧"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'DataGridView1
@@ -233,6 +237,26 @@ Partial Class mainForm
         Me.TextBox4.TabIndex = 1
         Me.TextBox4.Text = "仮でユーザー登録です"
         '
+        'TabPage5
+        '
+        Me.TabPage5.Location = New System.Drawing.Point(4, 32)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(1172, 454)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "使用登録"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'userdButton
+        '
+        Me.userdButton.Font = New System.Drawing.Font("Meiryo UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.userdButton.Location = New System.Drawing.Point(18, 83)
+        Me.userdButton.Name = "userdButton"
+        Me.userdButton.Size = New System.Drawing.Size(135, 50)
+        Me.userdButton.TabIndex = 7
+        Me.userdButton.Text = "使用登録"
+        Me.userdButton.UseVisualStyleBackColor = True
+        '
         'mainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
@@ -277,4 +301,6 @@ Partial Class mainForm
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents userdButton As Button
 End Class

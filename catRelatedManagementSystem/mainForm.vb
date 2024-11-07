@@ -9,7 +9,7 @@
         Next
 
         ' 初期状態でタブページ0を表示し、他のタブを削除
-        ShowTab(0)
+        ShowTab(1)
 
         'データべ‐スへの接続状況を確認後、接続作業
         If psql.pgsqlCon.State = ConnectionState.Closed Then
@@ -29,19 +29,23 @@
     End Sub
     '在庫管理ページの表示
     Private Sub inventoryButton_Click(sender As Object, e As EventArgs) Handles inventoryButton.Click
-        ShowTab(0)
+        ShowTab(1)
     End Sub
     '納品登録ページの表示
     Private Sub deliveryAddButton_Click(sender As Object, e As EventArgs) Handles deliveryAddButton.Click
-        ShowTab(1)
+        ShowTab(2)
     End Sub
     '商品登録ページの表示
     Private Sub itemAddButton_Click(sender As Object, e As EventArgs) Handles itemAddButton.Click
-        ShowTab(2)
+        ShowTab(3)
     End Sub
     'ユーザー登録ページの表示
     Private Sub userAddButton_Click(sender As Object, e As EventArgs) Handles userAddButton.Click
-        ShowTab(3)
+        ShowTab(4)
+    End Sub
+    '使用登録ぺージの表示
+    Private Sub userdButton_Click(sender As Object, e As EventArgs) Handles userdButton.Click
+        ShowTab(0)
     End Sub
     Private Sub ShowTab(index As Integer)
         ' タブのインデックス範囲を確認
@@ -66,5 +70,4 @@
     Private Sub mainForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Application.Exit()
     End Sub
-
 End Class
