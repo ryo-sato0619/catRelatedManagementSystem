@@ -23,6 +23,7 @@ Partial Class mainForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.userdButton = New System.Windows.Forms.Button()
         Me.userAddButton = New System.Windows.Forms.Button()
         Me.logoutButton = New System.Windows.Forms.Button()
         Me.itemAddButton = New System.Windows.Forms.Button()
@@ -30,16 +31,33 @@ Partial Class mainForm
         Me.inventoryButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.mtextNet = New System.Windows.Forms.MaskedTextBox()
+        Me.mtextMoney = New System.Windows.Forms.MaskedTextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.ButtonCancel = New System.Windows.Forms.Button()
+        Me.ButtonOK = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.userdButton = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.textItemName = New System.Windows.Forms.TextBox()
+        Me.textRemarks = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.textUserName = New System.Windows.Forms.TextBox()
+        Me.textPassword = New System.Windows.Forms.TextBox()
+        Me.CheckBoxPermission = New System.Windows.Forms.CheckBox()
+        Me.ButtonOK_user = New System.Windows.Forms.Button()
+        Me.ButtonCannel_user = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -79,6 +97,16 @@ Partial Class mainForm
         Me.SplitContainer1.Size = New System.Drawing.Size(1178, 644)
         Me.SplitContainer1.SplitterDistance = 142
         Me.SplitContainer1.TabIndex = 0
+        '
+        'userdButton
+        '
+        Me.userdButton.Font = New System.Drawing.Font("Meiryo UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.userdButton.Location = New System.Drawing.Point(18, 83)
+        Me.userdButton.Name = "userdButton"
+        Me.userdButton.Size = New System.Drawing.Size(135, 50)
+        Me.userdButton.TabIndex = 7
+        Me.userdButton.Text = "使用登録"
+        Me.userdButton.UseVisualStyleBackColor = True
         '
         'userAddButton
         '
@@ -157,6 +185,16 @@ Partial Class mainForm
         Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabControl1.TabIndex = 0
         '
+        'TabPage5
+        '
+        Me.TabPage5.Location = New System.Drawing.Point(4, 32)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(1172, 454)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "使用登録"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.DataGridView1)
@@ -201,61 +239,217 @@ Partial Class mainForm
         '
         'TabPage3
         '
-        Me.TabPage3.Controls.Add(Me.TextBox3)
+        Me.TabPage3.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.TabPage3.Controls.Add(Me.textRemarks)
+        Me.TabPage3.Controls.Add(Me.textItemName)
+        Me.TabPage3.Controls.Add(Me.Label7)
+        Me.TabPage3.Controls.Add(Me.Label6)
+        Me.TabPage3.Controls.Add(Me.mtextNet)
+        Me.TabPage3.Controls.Add(Me.mtextMoney)
+        Me.TabPage3.Controls.Add(Me.Label5)
+        Me.TabPage3.Controls.Add(Me.Label4)
+        Me.TabPage3.Controls.Add(Me.Label3)
+        Me.TabPage3.Controls.Add(Me.Label2)
+        Me.TabPage3.Controls.Add(Me.ButtonCancel)
+        Me.TabPage3.Controls.Add(Me.ButtonOK)
         Me.TabPage3.Location = New System.Drawing.Point(4, 32)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(1172, 454)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "商品登録"
-        Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'TextBox3
+        'Label6
         '
-        Me.TextBox3.Location = New System.Drawing.Point(201, 103)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(213, 30)
-        Me.TextBox3.TabIndex = 1
-        Me.TextBox3.Text = "仮で商品登録です"
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(348, 114)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(28, 23)
+        Me.Label6.TabIndex = 8
+        Me.Label6.Text = "円"
+        '
+        'mtextNet
+        '
+        Me.mtextNet.Location = New System.Drawing.Point(214, 169)
+        Me.mtextNet.Mask = "999999"
+        Me.mtextNet.Name = "mtextNet"
+        Me.mtextNet.Size = New System.Drawing.Size(105, 30)
+        Me.mtextNet.TabIndex = 7
+        Me.mtextNet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'mtextMoney
+        '
+        Me.mtextMoney.Location = New System.Drawing.Point(214, 107)
+        Me.mtextMoney.Mask = "999999"
+        Me.mtextMoney.Name = "mtextMoney"
+        Me.mtextMoney.Size = New System.Drawing.Size(105, 30)
+        Me.mtextMoney.TabIndex = 6
+        Me.mtextMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(37, 235)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(46, 23)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "備考"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(37, 169)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(64, 23)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "内容量"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(37, 107)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 23)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "金額"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(37, 53)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 23)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "品名"
+        '
+        'ButtonCancel
+        '
+        Me.ButtonCancel.Location = New System.Drawing.Point(485, 296)
+        Me.ButtonCancel.Name = "ButtonCancel"
+        Me.ButtonCancel.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonCancel.TabIndex = 1
+        Me.ButtonCancel.Text = "キャンセル"
+        Me.ButtonCancel.UseVisualStyleBackColor = True
+        '
+        'ButtonOK
+        '
+        Me.ButtonOK.Location = New System.Drawing.Point(314, 296)
+        Me.ButtonOK.Name = "ButtonOK"
+        Me.ButtonOK.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonOK.TabIndex = 0
+        Me.ButtonOK.Text = "登録"
+        Me.ButtonOK.UseVisualStyleBackColor = True
         '
         'TabPage4
         '
-        Me.TabPage4.Controls.Add(Me.TextBox4)
+        Me.TabPage4.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.TabPage4.Controls.Add(Me.ButtonCannel_user)
+        Me.TabPage4.Controls.Add(Me.ButtonOK_user)
+        Me.TabPage4.Controls.Add(Me.CheckBoxPermission)
+        Me.TabPage4.Controls.Add(Me.textPassword)
+        Me.TabPage4.Controls.Add(Me.textUserName)
+        Me.TabPage4.Controls.Add(Me.Label10)
+        Me.TabPage4.Controls.Add(Me.Label9)
+        Me.TabPage4.Controls.Add(Me.Label8)
         Me.TabPage4.Location = New System.Drawing.Point(4, 32)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage4.Size = New System.Drawing.Size(1172, 454)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "ユーザー登録"
-        Me.TabPage4.UseVisualStyleBackColor = True
         '
-        'TextBox4
+        'Label7
         '
-        Me.TextBox4.Location = New System.Drawing.Point(155, 87)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(213, 30)
-        Me.TextBox4.TabIndex = 1
-        Me.TextBox4.Text = "仮でユーザー登録です"
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(348, 176)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(57, 23)
+        Me.Label7.TabIndex = 9
+        Me.Label7.Text = "個入り"
         '
-        'TabPage5
+        'textItemName
         '
-        Me.TabPage5.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1172, 454)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "使用登録"
-        Me.TabPage5.UseVisualStyleBackColor = True
+        Me.textItemName.Location = New System.Drawing.Point(214, 46)
+        Me.textItemName.Name = "textItemName"
+        Me.textItemName.Size = New System.Drawing.Size(293, 30)
+        Me.textItemName.TabIndex = 10
         '
-        'userdButton
+        'textRemarks
         '
-        Me.userdButton.Font = New System.Drawing.Font("Meiryo UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.userdButton.Location = New System.Drawing.Point(18, 83)
-        Me.userdButton.Name = "userdButton"
-        Me.userdButton.Size = New System.Drawing.Size(135, 50)
-        Me.userdButton.TabIndex = 7
-        Me.userdButton.Text = "使用登録"
-        Me.userdButton.UseVisualStyleBackColor = True
+        Me.textRemarks.Location = New System.Drawing.Point(214, 235)
+        Me.textRemarks.Name = "textRemarks"
+        Me.textRemarks.Size = New System.Drawing.Size(293, 30)
+        Me.textRemarks.TabIndex = 11
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(61, 65)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(46, 23)
+        Me.Label8.TabIndex = 0
+        Me.Label8.Text = "名前"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(61, 133)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(81, 23)
+        Me.Label9.TabIndex = 1
+        Me.Label9.Text = "パスワード"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(61, 206)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(100, 23)
+        Me.Label10.TabIndex = 2
+        Me.Label10.Text = "管理者権限"
+        '
+        'textUserName
+        '
+        Me.textUserName.Location = New System.Drawing.Point(252, 58)
+        Me.textUserName.Name = "textUserName"
+        Me.textUserName.Size = New System.Drawing.Size(293, 30)
+        Me.textUserName.TabIndex = 3
+        '
+        'textPassword
+        '
+        Me.textPassword.Location = New System.Drawing.Point(252, 126)
+        Me.textPassword.Name = "textPassword"
+        Me.textPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.textPassword.Size = New System.Drawing.Size(293, 30)
+        Me.textPassword.TabIndex = 4
+        '
+        'CheckBoxPermission
+        '
+        Me.CheckBoxPermission.AutoSize = True
+        Me.CheckBoxPermission.Location = New System.Drawing.Point(252, 206)
+        Me.CheckBoxPermission.Name = "CheckBoxPermission"
+        Me.CheckBoxPermission.Size = New System.Drawing.Size(108, 27)
+        Me.CheckBoxPermission.TabIndex = 5
+        Me.CheckBoxPermission.Text = "権限有無"
+        Me.CheckBoxPermission.UseVisualStyleBackColor = True
+        '
+        'ButtonOK_user
+        '
+        Me.ButtonOK_user.Location = New System.Drawing.Point(297, 300)
+        Me.ButtonOK_user.Name = "ButtonOK_user"
+        Me.ButtonOK_user.Size = New System.Drawing.Size(144, 42)
+        Me.ButtonOK_user.TabIndex = 6
+        Me.ButtonOK_user.Text = "登録"
+        Me.ButtonOK_user.UseVisualStyleBackColor = True
+        '
+        'ButtonCannel_user
+        '
+        Me.ButtonCannel_user.Location = New System.Drawing.Point(481, 300)
+        Me.ButtonCannel_user.Name = "ButtonCannel_user"
+        Me.ButtonCannel_user.Size = New System.Drawing.Size(144, 42)
+        Me.ButtonCannel_user.TabIndex = 7
+        Me.ButtonCannel_user.Text = "キャンセル"
+        Me.ButtonCannel_user.UseVisualStyleBackColor = True
         '
         'mainForm
         '
@@ -298,9 +492,27 @@ Partial Class mainForm
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents TabPage4 As TabPage
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents TabPage5 As TabPage
     Friend WithEvents userdButton As Button
+    Friend WithEvents ButtonOK As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents mtextNet As MaskedTextBox
+    Friend WithEvents mtextMoney As MaskedTextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents ButtonCancel As Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents textRemarks As TextBox
+    Friend WithEvents textItemName As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents textPassword As TextBox
+    Friend WithEvents textUserName As TextBox
+    Friend WithEvents CheckBoxPermission As CheckBox
+    Friend WithEvents ButtonCannel_user As Button
+    Friend WithEvents ButtonOK_user As Button
 End Class

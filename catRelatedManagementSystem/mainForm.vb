@@ -1,4 +1,6 @@
-﻿Public Class mainForm
+﻿Imports Npgsql
+
+Public Class mainForm
 
     Private allTabs As New List(Of TabPage)
 
@@ -69,5 +71,45 @@
     'フォームが閉じられた時にシステム終了
     Private Sub mainForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Application.Exit()
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxPermission.CheckedChanged
+
+    End Sub
+
+    Private Sub ButtonCannel_user_Click(sender As Object, e As EventArgs) Handles ButtonCannel_user.Click
+
+    End Sub
+    '登録ボタン押下時
+    Private Sub ButtonOK_user_Click(sender As Object, e As EventArgs) Handles ButtonOK_user.Click
+        ' テキストボックスおよびチェックボックスの情報を取得
+        Dim userName As String = textUserName.Text
+        Dim password As String = textPassword.Text
+        Dim authority As Boolean = CheckBoxPermission.Checked
+
+        ' データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        Using conn As New NpgsqlConnection(connString)
+            conn.Open()
+
+            ' SQL INSERT 文の作成
+            Dim query As String = "INSERT INTO userinfo (user_name, password, authority) VALUES (@user_name, @password, @authority)"
+
+            Using cmd As New NpgsqlCommand(query, conn)
+                ' パラメータの設定
+                cmd.Parameters.AddWithValue("@user_name", userName)
+                cmd.Parameters.AddWithValue("@password", password)
+                cmd.Parameters.AddWithValue("@authority", authority)
+
+                ' SQL INSERT 文の実行
+                Try
+                    cmd.ExecuteNonQuery()
+                    MessageBox.Show("データの登録が成功しました。")
+                Catch ex As Exception
+                    MessageBox.Show("データの登録に失敗しました: " & ex.Message)
+                End Try
+            End Using
+        End Using
+
     End Sub
 End Class
