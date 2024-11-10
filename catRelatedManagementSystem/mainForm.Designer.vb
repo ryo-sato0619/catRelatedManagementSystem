@@ -37,6 +37,9 @@ Partial Class mainForm
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.textRemarks = New System.Windows.Forms.TextBox()
+        Me.textItemName = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.mtextNet = New System.Windows.Forms.MaskedTextBox()
         Me.mtextMoney = New System.Windows.Forms.MaskedTextBox()
@@ -47,17 +50,14 @@ Partial Class mainForm
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.textItemName = New System.Windows.Forms.TextBox()
-        Me.textRemarks = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.textUserName = New System.Windows.Forms.TextBox()
-        Me.textPassword = New System.Windows.Forms.TextBox()
-        Me.CheckBoxPermission = New System.Windows.Forms.CheckBox()
-        Me.ButtonOK_user = New System.Windows.Forms.Button()
         Me.ButtonCannel_user = New System.Windows.Forms.Button()
+        Me.ButtonOK_user = New System.Windows.Forms.Button()
+        Me.CheckBoxPermission = New System.Windows.Forms.CheckBox()
+        Me.textPassword = New System.Windows.Forms.TextBox()
+        Me.textUserName = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -259,6 +259,29 @@ Partial Class mainForm
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "商品登録"
         '
+        'textRemarks
+        '
+        Me.textRemarks.Location = New System.Drawing.Point(214, 235)
+        Me.textRemarks.Name = "textRemarks"
+        Me.textRemarks.Size = New System.Drawing.Size(293, 30)
+        Me.textRemarks.TabIndex = 11
+        '
+        'textItemName
+        '
+        Me.textItemName.Location = New System.Drawing.Point(214, 46)
+        Me.textItemName.Name = "textItemName"
+        Me.textItemName.Size = New System.Drawing.Size(293, 30)
+        Me.textItemName.TabIndex = 10
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(348, 176)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(57, 23)
+        Me.Label7.TabIndex = 9
+        Me.Label7.Text = "個入り"
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -358,70 +381,23 @@ Partial Class mainForm
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "ユーザー登録"
         '
-        'Label7
+        'ButtonCannel_user
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(348, 176)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 23)
-        Me.Label7.TabIndex = 9
-        Me.Label7.Text = "個入り"
+        Me.ButtonCannel_user.Location = New System.Drawing.Point(481, 300)
+        Me.ButtonCannel_user.Name = "ButtonCannel_user"
+        Me.ButtonCannel_user.Size = New System.Drawing.Size(144, 42)
+        Me.ButtonCannel_user.TabIndex = 7
+        Me.ButtonCannel_user.Text = "キャンセル"
+        Me.ButtonCannel_user.UseVisualStyleBackColor = True
         '
-        'textItemName
+        'ButtonOK_user
         '
-        Me.textItemName.Location = New System.Drawing.Point(214, 46)
-        Me.textItemName.Name = "textItemName"
-        Me.textItemName.Size = New System.Drawing.Size(293, 30)
-        Me.textItemName.TabIndex = 10
-        '
-        'textRemarks
-        '
-        Me.textRemarks.Location = New System.Drawing.Point(214, 235)
-        Me.textRemarks.Name = "textRemarks"
-        Me.textRemarks.Size = New System.Drawing.Size(293, 30)
-        Me.textRemarks.TabIndex = 11
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(61, 65)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(46, 23)
-        Me.Label8.TabIndex = 0
-        Me.Label8.Text = "名前"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(61, 133)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(81, 23)
-        Me.Label9.TabIndex = 1
-        Me.Label9.Text = "パスワード"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(61, 206)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(100, 23)
-        Me.Label10.TabIndex = 2
-        Me.Label10.Text = "管理者権限"
-        '
-        'textUserName
-        '
-        Me.textUserName.Location = New System.Drawing.Point(252, 58)
-        Me.textUserName.Name = "textUserName"
-        Me.textUserName.Size = New System.Drawing.Size(293, 30)
-        Me.textUserName.TabIndex = 3
-        '
-        'textPassword
-        '
-        Me.textPassword.Location = New System.Drawing.Point(252, 126)
-        Me.textPassword.Name = "textPassword"
-        Me.textPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.textPassword.Size = New System.Drawing.Size(293, 30)
-        Me.textPassword.TabIndex = 4
+        Me.ButtonOK_user.Location = New System.Drawing.Point(297, 300)
+        Me.ButtonOK_user.Name = "ButtonOK_user"
+        Me.ButtonOK_user.Size = New System.Drawing.Size(144, 42)
+        Me.ButtonOK_user.TabIndex = 6
+        Me.ButtonOK_user.Text = "登録"
+        Me.ButtonOK_user.UseVisualStyleBackColor = True
         '
         'CheckBoxPermission
         '
@@ -433,23 +409,47 @@ Partial Class mainForm
         Me.CheckBoxPermission.Text = "権限有無"
         Me.CheckBoxPermission.UseVisualStyleBackColor = True
         '
-        'ButtonOK_user
+        'textPassword
         '
-        Me.ButtonOK_user.Location = New System.Drawing.Point(297, 300)
-        Me.ButtonOK_user.Name = "ButtonOK_user"
-        Me.ButtonOK_user.Size = New System.Drawing.Size(144, 42)
-        Me.ButtonOK_user.TabIndex = 6
-        Me.ButtonOK_user.Text = "登録"
-        Me.ButtonOK_user.UseVisualStyleBackColor = True
+        Me.textPassword.Location = New System.Drawing.Point(252, 126)
+        Me.textPassword.Name = "textPassword"
+        Me.textPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.textPassword.Size = New System.Drawing.Size(293, 30)
+        Me.textPassword.TabIndex = 4
         '
-        'ButtonCannel_user
+        'textUserName
         '
-        Me.ButtonCannel_user.Location = New System.Drawing.Point(481, 300)
-        Me.ButtonCannel_user.Name = "ButtonCannel_user"
-        Me.ButtonCannel_user.Size = New System.Drawing.Size(144, 42)
-        Me.ButtonCannel_user.TabIndex = 7
-        Me.ButtonCannel_user.Text = "キャンセル"
-        Me.ButtonCannel_user.UseVisualStyleBackColor = True
+        Me.textUserName.Location = New System.Drawing.Point(252, 58)
+        Me.textUserName.Name = "textUserName"
+        Me.textUserName.Size = New System.Drawing.Size(293, 30)
+        Me.textUserName.TabIndex = 3
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(61, 206)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(100, 23)
+        Me.Label10.TabIndex = 2
+        Me.Label10.Text = "管理者権限"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(61, 133)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(81, 23)
+        Me.Label9.TabIndex = 1
+        Me.Label9.Text = "パスワード"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(61, 65)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(46, 23)
+        Me.Label8.TabIndex = 0
+        Me.Label8.Text = "名前"
         '
         'mainForm
         '

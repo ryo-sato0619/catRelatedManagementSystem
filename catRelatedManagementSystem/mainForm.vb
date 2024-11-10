@@ -112,4 +112,40 @@ Public Class mainForm
         End Using
 
     End Sub
+
+    Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
+        'テキストボックスの情報を取得
+        Dim itemName As String = textItemName.Text
+        Dim itemMoney As Integer = mtextMoney.Text
+        Dim itemNet As Integer = mtextNet.Text
+        Dim itemRemarks As String = textRemarks.Text
+        Dim currentTime As DateTime = DateTime.Now()
+
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        Using conn As New NpgsqlConnection(connString)
+
+            'SQL INSERT文の作成
+            Dim query As String = "INSERT INTO iteminfo (item_name, item_money, item_net, item_remarks, time_stamp) VALUES (@item_name, @item_money, @item_net, @item_remarks, @time_stamp)"
+
+            Using cmd As New NpgsqlCommand(query, conn)
+                'パラメータの設定
+                cmd.Parameters.AddWithValue("@item_name", itemName)
+                cmd.Parameters.AddWithValue("@item_money", itemMoney)
+                cmd.Parameters.AddWithValue("@item_net", itemNet)
+                cmd.Parameters.AddWithValue("@item_remarks", itemRemarks)
+                'cmd.Parameters.AddWithValue("@display_flg", "True")
+                cmd.Parameters.AddWithValue("@tiem_stamp", currentTime)
+
+                'SQL INSERT文の実行
+                Try
+                    cmd.ExecuteNonQuery()
+                    MessageBox.Show("商品データの登録が成功しました")
+                Catch ex As Exception
+                    MessageBox.Show("商品データの登録に失敗しました" & ex.Message)
+
+                End Try
+            End Using
+        End Using
+    End Sub
 End Class
