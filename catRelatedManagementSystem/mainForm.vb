@@ -125,6 +125,8 @@ Public Class mainForm
         Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
         Using conn As New NpgsqlConnection(connString)
 
+            conn.Open()
+
             'SQL INSERT文の作成
             Dim query As String = "INSERT INTO iteminfo (item_name, item_money, item_net, item_remarks, time_stamp) VALUES (@item_name, @item_money, @item_net, @item_remarks, @time_stamp)"
 
@@ -134,8 +136,8 @@ Public Class mainForm
                 cmd.Parameters.AddWithValue("@item_money", itemMoney)
                 cmd.Parameters.AddWithValue("@item_net", itemNet)
                 cmd.Parameters.AddWithValue("@item_remarks", itemRemarks)
-                'cmd.Parameters.AddWithValue("@display_flg", "True")
-                cmd.Parameters.AddWithValue("@tiem_stamp", currentTime)
+                cmd.Parameters.AddWithValue("@time_stamp", currentTime)
+                cmd.Parameters.AddWithValue("@display_flg", "True")
 
                 'SQL INSERT文の実行
                 Try
