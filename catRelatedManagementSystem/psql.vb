@@ -1,4 +1,7 @@
 ﻿Imports Npgsql
+Imports Newtonsoft.json.Linq
+Imports System.IO
+
 Module psql
 
     Public pgsqlCon As New NpgsqlConnection
@@ -7,16 +10,7 @@ Module psql
     'データベースに接続
     Sub sqlSt()
 
-        Dim Builder = New NpgsqlConnectionStringBuilder()
-        'データベースに必要な情報を取得
-        Builder.Host = "localhost"
-        Builder.Port = 5432
-        Builder.Username = "postgres"
-        Builder.Password = "test"
-        Builder.Database = "catdb"
-
-        Dim conStr = Builder.ToString()
-
+        Dim conStr As String = GetConnectionString("appsettings.json", "ConnectionStrings:PostgreSqlConnection")
         pgsqlCon.ConnectionString = conStr
         pgsqlCon.Open()
 
@@ -37,9 +31,7 @@ Module psql
             Dim adapter = New NpgsqlDataAdapter(query, pgsqlCon)
 
             'データ取得
-            Dim Ds As New DataSet
             adapter.Fill(dt)
-
             Return dt
 
         Catch ex As Exception
@@ -67,10 +59,36 @@ Module psql
         End Try
 
     End Function
+    '設定ファイルから接続情報を取得
+    Private Function GetConnectionString(ByVal filePath As String, ByVal key As String) As String
+        Try
+            If Not File.Exists(filePath) Then
+                MessageBox.Show("設定ファイルが見つかりません: " & filePath)
+                Return Nothing
+            End If
+            Dim json As String = File.ReadAllText(filePath)
+            Dim jObject As JObject = JObject.Parse(json)
+            Dim connectionString As String = jObject.SelectToken(key.Replace(":", "."))?.ToString()
 
+            If connectionString Is Nothing Then
+                MessageBox.Show("接続文字列が見つかりません: " & key)
+                Return Nothing
+            End If
+
+            Return connectionString
+        Catch ex As Exception
+            MessageBox.Show("設定ファイルの読み込みに失敗しました: " & ex.Message)
+            Return Nothing
+        End Try
+    End Function
+
+
+
+    '接続確認
     Sub CheckConnection()
         Try
-            pgsqlCon.ConnectionString = "Host=localhost;Port=5432;Username=postgres;Password=test;Database=postgres"
+            Dim conStr As String = GetConnectionString("appsettings.json", "ConnectionStrings:PostgreSqlConnection")
+            pgsqlCon.ConnectionString = conStr
             pgsqlCon.Open()
             MessageBox.Show("接続に成功しました。")
         Catch ex As Exception
