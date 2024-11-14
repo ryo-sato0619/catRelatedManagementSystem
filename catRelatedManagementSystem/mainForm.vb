@@ -78,7 +78,10 @@ Public Class mainForm
     End Sub
 
     Private Sub ButtonCannel_user_Click(sender As Object, e As EventArgs) Handles ButtonCannel_user.Click
-
+        'テキストボックスの中身を空にする
+        textUserName.Text = ""
+        textPassword.Text = ""
+        CheckBoxPermission.Checked = False
     End Sub
     '登録ボタン押下時
     Private Sub ButtonOK_user_Click(sender As Object, e As EventArgs) Handles ButtonOK_user.Click
@@ -149,5 +152,13 @@ Public Class mainForm
                 End Try
             End Using
         End Using
+    End Sub
+
+    Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click
+        'テキストボックスの中身を空にする
+        textItemName.Text = ""
+        mtextMoney.Text = ""
+        mtextNet.Text = ""
+        textRemarks.Text = ""
     End Sub
 End Class

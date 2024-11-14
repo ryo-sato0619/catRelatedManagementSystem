@@ -264,7 +264,7 @@ Partial Class mainForm
         Me.textRemarks.Location = New System.Drawing.Point(214, 235)
         Me.textRemarks.Name = "textRemarks"
         Me.textRemarks.Size = New System.Drawing.Size(293, 30)
-        Me.textRemarks.TabIndex = 11
+        Me.textRemarks.TabIndex = 13
         '
         'textItemName
         '
@@ -297,7 +297,7 @@ Partial Class mainForm
         Me.mtextNet.Mask = "999999"
         Me.mtextNet.Name = "mtextNet"
         Me.mtextNet.Size = New System.Drawing.Size(105, 30)
-        Me.mtextNet.TabIndex = 7
+        Me.mtextNet.TabIndex = 12
         Me.mtextNet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'mtextMoney
@@ -306,7 +306,7 @@ Partial Class mainForm
         Me.mtextMoney.Mask = "999999"
         Me.mtextMoney.Name = "mtextMoney"
         Me.mtextMoney.Size = New System.Drawing.Size(105, 30)
-        Me.mtextMoney.TabIndex = 6
+        Me.mtextMoney.TabIndex = 11
         Me.mtextMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label5
@@ -405,7 +405,7 @@ Partial Class mainForm
         Me.CheckBoxPermission.Location = New System.Drawing.Point(252, 206)
         Me.CheckBoxPermission.Name = "CheckBoxPermission"
         Me.CheckBoxPermission.Size = New System.Drawing.Size(108, 27)
-        Me.CheckBoxPermission.TabIndex = 5
+        Me.CheckBoxPermission.TabIndex = 4
         Me.CheckBoxPermission.Text = "権限有無"
         Me.CheckBoxPermission.UseVisualStyleBackColor = True
         '
@@ -415,14 +415,14 @@ Partial Class mainForm
         Me.textPassword.Name = "textPassword"
         Me.textPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.textPassword.Size = New System.Drawing.Size(293, 30)
-        Me.textPassword.TabIndex = 4
+        Me.textPassword.TabIndex = 3
         '
         'textUserName
         '
         Me.textUserName.Location = New System.Drawing.Point(252, 58)
         Me.textUserName.Name = "textUserName"
         Me.textUserName.Size = New System.Drawing.Size(293, 30)
-        Me.textUserName.TabIndex = 3
+        Me.textUserName.TabIndex = 2
         '
         'Label10
         '
