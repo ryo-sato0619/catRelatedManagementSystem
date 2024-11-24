@@ -35,7 +35,6 @@ Partial Class mainForm
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.textRemarks = New System.Windows.Forms.TextBox()
         Me.textItemName = New System.Windows.Forms.TextBox()
@@ -58,6 +57,10 @@ Partial Class mainForm
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.itemIndecation = New System.Windows.Forms.ComboBox()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -187,13 +190,13 @@ Partial Class mainForm
         '
         'TabPage5
         '
+        Me.TabPage5.BackColor = System.Drawing.Color.SkyBlue
         Me.TabPage5.Location = New System.Drawing.Point(4, 32)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage5.Size = New System.Drawing.Size(1172, 454)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "使用登録"
-        Me.TabPage5.UseVisualStyleBackColor = True
         '
         'TabPage1
         '
@@ -209,6 +212,7 @@ Partial Class mainForm
         '
         'DataGridView1
         '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.SkyBlue
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(3, 6)
         Me.DataGridView1.Name = "DataGridView1"
@@ -219,7 +223,11 @@ Partial Class mainForm
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.TextBox2)
+        Me.TabPage2.BackColor = System.Drawing.Color.SkyBlue
+        Me.TabPage2.Controls.Add(Me.itemIndecation)
+        Me.TabPage2.Controls.Add(Me.Label13)
+        Me.TabPage2.Controls.Add(Me.Label12)
+        Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TabPage2.Location = New System.Drawing.Point(4, 32)
         Me.TabPage2.Name = "TabPage2"
@@ -227,19 +235,10 @@ Partial Class mainForm
         Me.TabPage2.Size = New System.Drawing.Size(1172, 454)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "納品登録"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(49, 81)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(213, 30)
-        Me.TextBox2.TabIndex = 1
-        Me.TextBox2.Text = "仮で納品管理です"
         '
         'TabPage3
         '
-        Me.TabPage3.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.TabPage3.BackColor = System.Drawing.Color.SkyBlue
         Me.TabPage3.Controls.Add(Me.textRemarks)
         Me.TabPage3.Controls.Add(Me.textItemName)
         Me.TabPage3.Controls.Add(Me.Label7)
@@ -365,7 +364,7 @@ Partial Class mainForm
         '
         'TabPage4
         '
-        Me.TabPage4.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.TabPage4.BackColor = System.Drawing.Color.SkyBlue
         Me.TabPage4.Controls.Add(Me.ButtonCannel_user)
         Me.TabPage4.Controls.Add(Me.ButtonOK_user)
         Me.TabPage4.Controls.Add(Me.CheckBoxPermission)
@@ -451,6 +450,41 @@ Partial Class mainForm
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "名前"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(42, 56)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(46, 23)
+        Me.Label11.TabIndex = 0
+        Me.Label11.Text = "品名"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(42, 121)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(46, 23)
+        Me.Label12.TabIndex = 1
+        Me.Label12.Text = "数量"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(42, 194)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(46, 23)
+        Me.Label13.TabIndex = 2
+        Me.Label13.Text = "備考"
+        '
+        'itemIndecation
+        '
+        Me.itemIndecation.FormattingEnabled = True
+        Me.itemIndecation.Location = New System.Drawing.Point(136, 56)
+        Me.itemIndecation.Name = "itemIndecation"
+        Me.itemIndecation.Size = New System.Drawing.Size(346, 31)
+        Me.itemIndecation.TabIndex = 3
+        '
         'mainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
@@ -491,7 +525,6 @@ Partial Class mainForm
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents TabPage4 As TabPage
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents TabPage5 As TabPage
     Friend WithEvents userdButton As Button
@@ -515,4 +548,8 @@ Partial Class mainForm
     Friend WithEvents CheckBoxPermission As CheckBox
     Friend WithEvents ButtonCannel_user As Button
     Friend WithEvents ButtonOK_user As Button
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents itemIndecation As ComboBox
 End Class

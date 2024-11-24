@@ -1,4 +1,5 @@
-﻿Imports Npgsql
+﻿Imports System.Data.SqlClient
+Imports Npgsql
 
 Public Class mainForm
 
@@ -36,6 +37,24 @@ Public Class mainForm
     '納品登録ページの表示
     Private Sub deliveryAddButton_Click(sender As Object, e As EventArgs) Handles deliveryAddButton.Click
         ShowTab(2)
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        ' SQLクエリの設定
+        Dim query As String = "SELECT item_name FROM iteminfo" ' iteminfoテーブルからitemName列を取得
+
+        'データベース接続とデータ取得
+        Using conn As New NpgsqlConnection(connString)
+            Dim cmd As New NpgsqlCommand(query, conn)
+            conn.Open()
+
+            Dim reader As NpgsqlDataReader = cmd.ExecuteReader()
+            While reader.Read()
+                'itemIndication（コンボボックス）にデータを追加
+                itemIndecation.Items.Add(reader("item_name").ToString())
+            End While
+
+            reader.Close()
+        End Using
     End Sub
     '商品登録ページの表示
     Private Sub itemAddButton_Click(sender As Object, e As EventArgs) Handles itemAddButton.Click
@@ -161,4 +180,5 @@ Public Class mainForm
         mtextNet.Text = ""
         textRemarks.Text = ""
     End Sub
+
 End Class
