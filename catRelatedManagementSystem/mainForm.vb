@@ -181,4 +181,21 @@ Public Class mainForm
         textRemarks.Text = ""
     End Sub
 
+    Private Sub quantity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles deliveryQuantity.KeyPress
+        '数字と制御文字のみ許可
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub ButtonCancel_delivery_Click(sender As Object, e As EventArgs) Handles ButtonCancel_delivery.Click
+        'テキストボックスを含む項目を空にする
+        itemIndecation.Text = ""
+        deliveryQuantity.Text = ""
+        deliveryNote.Text = ""
+    End Sub
+
+    Private Sub ButtonOK_delivery_Click(sender As Object, e As EventArgs) Handles ButtonOK_delivery.Click
+
+    End Sub
 End Class
