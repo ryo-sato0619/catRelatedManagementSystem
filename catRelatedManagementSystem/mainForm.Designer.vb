@@ -35,9 +35,12 @@ Partial Class mainForm
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.ButtonCancel_delivery = New System.Windows.Forms.Button()
+        Me.ButtonOK_delivery = New System.Windows.Forms.Button()
+        Me.deliveryNote = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.deliveryQuantity = New System.Windows.Forms.TextBox()
-        Me.itemIndecation = New System.Windows.Forms.ComboBox()
+        Me.itemIndication = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -63,9 +66,6 @@ Partial Class mainForm
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.deliveryNote = New System.Windows.Forms.TextBox()
-        Me.ButtonOK_delivery = New System.Windows.Forms.Button()
-        Me.ButtonCancel_delivery = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -234,7 +234,7 @@ Partial Class mainForm
         Me.TabPage2.Controls.Add(Me.deliveryNote)
         Me.TabPage2.Controls.Add(Me.Label14)
         Me.TabPage2.Controls.Add(Me.deliveryQuantity)
-        Me.TabPage2.Controls.Add(Me.itemIndecation)
+        Me.TabPage2.Controls.Add(Me.itemIndication)
         Me.TabPage2.Controls.Add(Me.Label13)
         Me.TabPage2.Controls.Add(Me.Label12)
         Me.TabPage2.Controls.Add(Me.Label11)
@@ -245,6 +245,31 @@ Partial Class mainForm
         Me.TabPage2.Size = New System.Drawing.Size(1172, 454)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "納品登録"
+        '
+        'ButtonCancel_delivery
+        '
+        Me.ButtonCancel_delivery.Location = New System.Drawing.Point(525, 305)
+        Me.ButtonCancel_delivery.Name = "ButtonCancel_delivery"
+        Me.ButtonCancel_delivery.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonCancel_delivery.TabIndex = 8
+        Me.ButtonCancel_delivery.Text = "キャンセル"
+        Me.ButtonCancel_delivery.UseVisualStyleBackColor = True
+        '
+        'ButtonOK_delivery
+        '
+        Me.ButtonOK_delivery.Location = New System.Drawing.Point(356, 305)
+        Me.ButtonOK_delivery.Name = "ButtonOK_delivery"
+        Me.ButtonOK_delivery.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonOK_delivery.TabIndex = 7
+        Me.ButtonOK_delivery.Text = "登録"
+        Me.ButtonOK_delivery.UseVisualStyleBackColor = True
+        '
+        'deliveryNote
+        '
+        Me.deliveryNote.Location = New System.Drawing.Point(136, 191)
+        Me.deliveryNote.Name = "deliveryNote"
+        Me.deliveryNote.Size = New System.Drawing.Size(643, 30)
+        Me.deliveryNote.TabIndex = 6
         '
         'Label14
         '
@@ -262,13 +287,13 @@ Partial Class mainForm
         Me.deliveryQuantity.Size = New System.Drawing.Size(87, 30)
         Me.deliveryQuantity.TabIndex = 4
         '
-        'itemIndecation
+        'itemIndication
         '
-        Me.itemIndecation.FormattingEnabled = True
-        Me.itemIndecation.Location = New System.Drawing.Point(136, 56)
-        Me.itemIndecation.Name = "itemIndecation"
-        Me.itemIndecation.Size = New System.Drawing.Size(346, 31)
-        Me.itemIndecation.TabIndex = 3
+        Me.itemIndication.FormattingEnabled = True
+        Me.itemIndication.Location = New System.Drawing.Point(136, 56)
+        Me.itemIndication.Name = "itemIndication"
+        Me.itemIndication.Size = New System.Drawing.Size(346, 31)
+        Me.itemIndication.TabIndex = 3
         '
         'Label13
         '
@@ -511,31 +536,6 @@ Partial Class mainForm
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "名前"
         '
-        'deliveryNote
-        '
-        Me.deliveryNote.Location = New System.Drawing.Point(136, 191)
-        Me.deliveryNote.Name = "deliveryNote"
-        Me.deliveryNote.Size = New System.Drawing.Size(643, 30)
-        Me.deliveryNote.TabIndex = 6
-        '
-        'ButtonOK_delivery
-        '
-        Me.ButtonOK_delivery.Location = New System.Drawing.Point(356, 305)
-        Me.ButtonOK_delivery.Name = "ButtonOK_delivery"
-        Me.ButtonOK_delivery.Size = New System.Drawing.Size(143, 43)
-        Me.ButtonOK_delivery.TabIndex = 7
-        Me.ButtonOK_delivery.Text = "登録"
-        Me.ButtonOK_delivery.UseVisualStyleBackColor = True
-        '
-        'ButtonCancel_delivery
-        '
-        Me.ButtonCancel_delivery.Location = New System.Drawing.Point(525, 305)
-        Me.ButtonCancel_delivery.Name = "ButtonCancel_delivery"
-        Me.ButtonCancel_delivery.Size = New System.Drawing.Size(143, 43)
-        Me.ButtonCancel_delivery.TabIndex = 8
-        Me.ButtonCancel_delivery.Text = "キャンセル"
-        Me.ButtonCancel_delivery.UseVisualStyleBackColor = True
-        '
         'mainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
@@ -602,7 +602,7 @@ Partial Class mainForm
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents itemIndecation As ComboBox
+    Friend WithEvents itemIndication As ComboBox
     Friend WithEvents deliveryQuantity As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents deliveryNote As TextBox

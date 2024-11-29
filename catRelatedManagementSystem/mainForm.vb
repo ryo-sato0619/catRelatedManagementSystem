@@ -40,7 +40,7 @@ Public Class mainForm
         'データベース接続文字列の設定
         Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
         ' SQLクエリの設定
-        Dim query As String = "SELECT item_name FROM iteminfo" ' iteminfoテーブルからitemName列を取得
+        Dim query As String = "SELECT item_number,item_name FROM iteminfo" ' iteminfoテーブルからitemName列を取得
 
         'データベース接続とデータ取得
         Using conn As New NpgsqlConnection(connString)
@@ -50,7 +50,8 @@ Public Class mainForm
             Dim reader As NpgsqlDataReader = cmd.ExecuteReader()
             While reader.Read()
                 'itemIndication（コンボボックス）にデータを追加
-                itemIndecation.Items.Add(reader("item_name").ToString())
+                Dim combinedText As String = reader("item_number").ToString() & " ： " & reader("item_name").ToString()
+                itemIndication.Items.Add(combinedText)
             End While
 
             reader.Close()
@@ -190,12 +191,19 @@ Public Class mainForm
 
     Private Sub ButtonCancel_delivery_Click(sender As Object, e As EventArgs) Handles ButtonCancel_delivery.Click
         'テキストボックスを含む項目を空にする
-        itemIndecation.Text = ""
+        itemIndication.Text = ""
         deliveryQuantity.Text = ""
         deliveryNote.Text = ""
     End Sub
 
     Private Sub ButtonOK_delivery_Click(sender As Object, e As EventArgs) Handles ButtonOK_delivery.Click
+        '選択項目を取得
+        Dim selectedItem As String = itemIndication.SelectedItem.ToString
 
+        'コンボボックス内の情報からitem_number情報を取得
+        Dim itemNumber As String = selectedItem.Split("：")(0)
+
+        MessageBox.Show(itemNumber)
     End Sub
+
 End Class
