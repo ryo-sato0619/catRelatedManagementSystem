@@ -193,7 +193,6 @@ Public Class mainForm
         'テキストボックスを含む項目を空にする
         itemIndication.Text = ""
         deliveryQuantity.Text = ""
-        deliveryNote.Text = ""
     End Sub
 
     Private Sub ButtonOK_delivery_Click(sender As Object, e As EventArgs) Handles ButtonOK_delivery.Click
@@ -203,7 +202,61 @@ Public Class mainForm
         'コンボボックス内の情報からitem_number情報を取得
         Dim itemNumber As String = selectedItem.Split("：")(0)
 
-        MessageBox.Show(itemNumber)
+        AddInventory(itemNumber)
     End Sub
 
+    Private Sub itemIndication_SelectedIndexChanged(sender As Object, e As EventArgs) Handles itemIndication.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub AddInventory(itemNumber As Integer)
+        '数量情報の取得
+        Dim deliveryQuantityInfo As Integer = Integer.Parse(deliveryQuantity.Text)
+
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        Using conn As New NpgsqlConnection(connString)
+            conn.Open()
+
+            'iteminfoテーブルからitem_netを取得
+            Dim query As String = "SELECT item_net FROM iteminfo WHERE item_number = @itemNumber"
+            Dim command As New NpgsqlCommand(query, conn)
+            command.Parameters.AddWithValue("@itemNumber", itemNumber)
+
+            Dim itemNet As Integer = Integer.Parse(command.ExecuteScalar().ToString())
+
+            '入庫数を計算
+            Dim inventory As Integer = itemNet * deliveryQuantityInfo
+
+            ' iteminventoryテーブルにitem_numberが存在するか確認
+            query = "SELECT inventory FROM iteminventory WHERE item_number = @itemNumber"
+            command = New NpgsqlCommand(query, conn)
+            command.Parameters.AddWithValue("@itemNumber", itemNumber)
+
+            Dim existingInventory As Object = command.ExecuteScalar()
+
+            If existingInventory IsNot Nothing Then
+                ' 既存の在庫が存在する場合、在庫を更新
+                Dim newInventory As Integer = Integer.Parse(existingInventory.ToString()) + inventory
+                query = "UPDATE iteminventory SET inventory = @newInventory, time_stamp = @timeStamp WHERE item_number = @itemNumber"
+                command = New NpgsqlCommand(query, conn)
+                command.Parameters.AddWithValue("@newInventory", newInventory)
+                command.Parameters.AddWithValue("@timeStamp", DateTime.Now)
+                command.Parameters.AddWithValue("@itemNumber", itemNumber)
+            Else
+                ' 既存の在庫が存在しない場合、新しいエントリを追加
+                query = "INSERT INTO iteminventory (item_number, inventory, display_flg, time_stamp) VALUES (@itemNumber, @inventory, @displayFlg, @timeStamp)"
+                command = New NpgsqlCommand(query, conn)
+                command.Parameters.AddWithValue("@itemNumber", itemNumber)
+                command.Parameters.AddWithValue("@inventory", inventory)
+                command.Parameters.AddWithValue("@displayFlg", True)
+                command.Parameters.AddWithValue("@timeStamp", DateTime.Now)
+            End If
+
+            command.ExecuteNonQuery()
+
+        End Using
+
+        MessageBox.Show("登録完了しました")
+    End Sub
 End Class

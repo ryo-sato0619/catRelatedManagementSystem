@@ -37,11 +37,9 @@ Partial Class mainForm
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ButtonCancel_delivery = New System.Windows.Forms.Button()
         Me.ButtonOK_delivery = New System.Windows.Forms.Button()
-        Me.deliveryNote = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.deliveryQuantity = New System.Windows.Forms.TextBox()
         Me.itemIndication = New System.Windows.Forms.ComboBox()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
@@ -231,11 +229,9 @@ Partial Class mainForm
         Me.TabPage2.BackColor = System.Drawing.Color.SkyBlue
         Me.TabPage2.Controls.Add(Me.ButtonCancel_delivery)
         Me.TabPage2.Controls.Add(Me.ButtonOK_delivery)
-        Me.TabPage2.Controls.Add(Me.deliveryNote)
         Me.TabPage2.Controls.Add(Me.Label14)
         Me.TabPage2.Controls.Add(Me.deliveryQuantity)
         Me.TabPage2.Controls.Add(Me.itemIndication)
-        Me.TabPage2.Controls.Add(Me.Label13)
         Me.TabPage2.Controls.Add(Me.Label12)
         Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -248,7 +244,7 @@ Partial Class mainForm
         '
         'ButtonCancel_delivery
         '
-        Me.ButtonCancel_delivery.Location = New System.Drawing.Point(525, 305)
+        Me.ButtonCancel_delivery.Location = New System.Drawing.Point(517, 177)
         Me.ButtonCancel_delivery.Name = "ButtonCancel_delivery"
         Me.ButtonCancel_delivery.Size = New System.Drawing.Size(143, 43)
         Me.ButtonCancel_delivery.TabIndex = 8
@@ -257,19 +253,12 @@ Partial Class mainForm
         '
         'ButtonOK_delivery
         '
-        Me.ButtonOK_delivery.Location = New System.Drawing.Point(356, 305)
+        Me.ButtonOK_delivery.Location = New System.Drawing.Point(329, 177)
         Me.ButtonOK_delivery.Name = "ButtonOK_delivery"
         Me.ButtonOK_delivery.Size = New System.Drawing.Size(143, 43)
         Me.ButtonOK_delivery.TabIndex = 7
         Me.ButtonOK_delivery.Text = "登録"
         Me.ButtonOK_delivery.UseVisualStyleBackColor = True
-        '
-        'deliveryNote
-        '
-        Me.deliveryNote.Location = New System.Drawing.Point(136, 191)
-        Me.deliveryNote.Name = "deliveryNote"
-        Me.deliveryNote.Size = New System.Drawing.Size(643, 30)
-        Me.deliveryNote.TabIndex = 6
         '
         'Label14
         '
@@ -294,15 +283,6 @@ Partial Class mainForm
         Me.itemIndication.Name = "itemIndication"
         Me.itemIndication.Size = New System.Drawing.Size(346, 31)
         Me.itemIndication.TabIndex = 3
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(42, 194)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(46, 23)
-        Me.Label13.TabIndex = 2
-        Me.Label13.Text = "備考"
         '
         'Label12
         '
@@ -599,13 +579,11 @@ Partial Class mainForm
     Friend WithEvents CheckBoxPermission As CheckBox
     Friend WithEvents ButtonCannel_user As Button
     Friend WithEvents ButtonOK_user As Button
-    Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents itemIndication As ComboBox
     Friend WithEvents deliveryQuantity As TextBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents deliveryNote As TextBox
     Friend WithEvents ButtonCancel_delivery As Button
     Friend WithEvents ButtonOK_delivery As Button
 End Class
