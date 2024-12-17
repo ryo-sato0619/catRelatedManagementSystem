@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Drawing.Text
 Imports Npgsql
 
 Public Class mainForm
@@ -14,22 +15,47 @@ Public Class mainForm
         ' 初期状態でタブページ0を表示し、他のタブを削除
         ShowTab(1)
 
-        'データべ‐スへの接続状況を確認後、接続作業
-        If psql.pgsqlCon.State = ConnectionState.Closed Then
-            psql.sqlSt()
-        End If
+        ' DataGridViewの設定
+        DataGridView1.RowHeadersVisible = False
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView1.AllowUserToResizeRows = False
+        DataGridView1.AllowUserToResizeColumns = False
+        DataGridView1.MultiSelect = False
 
-        '必要なデータの取得
-        Dim query As String = "SELECT * FROM iteminventory"
-        Dim dt As DataTable = psql.sqlResultReturn(query)
-
-        'DataGridView1にデータをバインド
-        DataGridView1.DataSource = dt
-
-        'データベースの接続を閉じる
-        psql.sqlCl()
+        '在庫一覧情報の読み込み
+        LoadData()
 
     End Sub
+    '在庫一覧情報の読み込み
+    Private Sub LoadData()
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        ' SQLクエリの設定
+        Dim query As String = "SELECT item_number, item_name, item_money, item_net, item_remarks, time_stamp FROM iteminfo"
+
+        ' データベース接続とデータ取得
+        Using connection As New NpgsqlConnection(connString)
+            connection.Open()
+
+            ' データテーブルの作成
+            Dim dataTable As New DataTable()
+            Dim adapter As New NpgsqlDataAdapter(query, connection)
+            adapter.Fill(dataTable)
+
+            ' カラム名の変更
+            dataTable.Columns("item_number").ColumnName = "商品番号"
+            dataTable.Columns("item_name").ColumnName = "商品名"
+            dataTable.Columns("item_money").ColumnName = "単価"
+            dataTable.Columns("item_net").ColumnName = "内容量"
+            dataTable.Columns("item_remarks").ColumnName = "備考"
+            dataTable.Columns("time_stamp").ColumnName = "最終更新日"
+
+            ' DataGridViewにデータをバインド
+            DataGridView1.DataSource = dataTable
+        End Using
+
+    End Sub
+
     '在庫管理ページの表示
     Private Sub inventoryButton_Click(sender As Object, e As EventArgs) Handles inventoryButton.Click
         ShowTab(1)
@@ -259,4 +285,5 @@ Public Class mainForm
 
         MessageBox.Show("登録完了しました")
     End Sub
+
 End Class
