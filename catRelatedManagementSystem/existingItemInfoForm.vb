@@ -7,7 +7,7 @@ Public Class existingItemInfoForm
         'データベース接続文字列の設定
         Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
         ' SQLクエリの設定
-        Dim query As String = "SELECT item_number FROM iteminfo" ' iteminfoテーブルからitem_number列を取得
+        Dim query As String = "SELECT item_number FROM iteminfo WHERE display_flg = TRUE" ' iteminfoテーブルからitem_number列を取得
 
         'データベース接続とデータ取得
         Using conn As New NpgsqlConnection(connString)
