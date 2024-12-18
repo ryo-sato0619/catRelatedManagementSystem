@@ -32,6 +32,13 @@ Partial Class mainForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.ButtonCancel_used = New System.Windows.Forms.Button()
+        Me.ButtonOK_used = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.usedQuantity = New System.Windows.Forms.TextBox()
+        Me.itemIndicationUsed = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
@@ -64,11 +71,13 @@ Partial Class mainForm
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.cahngeButton = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
@@ -194,12 +203,79 @@ Partial Class mainForm
         'TabPage5
         '
         Me.TabPage5.BackColor = System.Drawing.Color.SkyBlue
+        Me.TabPage5.Controls.Add(Me.ButtonCancel_used)
+        Me.TabPage5.Controls.Add(Me.ButtonOK_used)
+        Me.TabPage5.Controls.Add(Me.Label13)
+        Me.TabPage5.Controls.Add(Me.usedQuantity)
+        Me.TabPage5.Controls.Add(Me.itemIndicationUsed)
+        Me.TabPage5.Controls.Add(Me.Label15)
+        Me.TabPage5.Controls.Add(Me.Label16)
         Me.TabPage5.Location = New System.Drawing.Point(4, 32)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage5.Size = New System.Drawing.Size(1172, 454)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "使用登録"
+        '
+        'ButtonCancel_used
+        '
+        Me.ButtonCancel_used.Location = New System.Drawing.Point(517, 175)
+        Me.ButtonCancel_used.Name = "ButtonCancel_used"
+        Me.ButtonCancel_used.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonCancel_used.TabIndex = 15
+        Me.ButtonCancel_used.Text = "キャンセル"
+        Me.ButtonCancel_used.UseVisualStyleBackColor = True
+        '
+        'ButtonOK_used
+        '
+        Me.ButtonOK_used.Location = New System.Drawing.Point(329, 175)
+        Me.ButtonOK_used.Name = "ButtonOK_used"
+        Me.ButtonOK_used.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonOK_used.TabIndex = 14
+        Me.ButtonOK_used.Text = "登録"
+        Me.ButtonOK_used.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(266, 119)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(28, 23)
+        Me.Label13.TabIndex = 13
+        Me.Label13.Text = "個"
+        '
+        'usedQuantity
+        '
+        Me.usedQuantity.Location = New System.Drawing.Point(136, 112)
+        Me.usedQuantity.Name = "usedQuantity"
+        Me.usedQuantity.Size = New System.Drawing.Size(87, 30)
+        Me.usedQuantity.TabIndex = 12
+        '
+        'itemIndicationUsed
+        '
+        Me.itemIndicationUsed.FormattingEnabled = True
+        Me.itemIndicationUsed.Location = New System.Drawing.Point(136, 54)
+        Me.itemIndicationUsed.Name = "itemIndicationUsed"
+        Me.itemIndicationUsed.Size = New System.Drawing.Size(346, 31)
+        Me.itemIndicationUsed.TabIndex = 11
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(42, 119)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(46, 23)
+        Me.Label15.TabIndex = 10
+        Me.Label15.Text = "数量"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(42, 54)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(46, 23)
+        Me.Label16.TabIndex = 9
+        Me.Label16.Text = "品名"
         '
         'TabPage1
         '
@@ -305,6 +381,7 @@ Partial Class mainForm
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.SkyBlue
+        Me.TabPage3.Controls.Add(Me.cahngeButton)
         Me.TabPage3.Controls.Add(Me.textRemarks)
         Me.TabPage3.Controls.Add(Me.textItemName)
         Me.TabPage3.Controls.Add(Me.Label7)
@@ -412,7 +489,7 @@ Partial Class mainForm
         '
         'ButtonCancel
         '
-        Me.ButtonCancel.Location = New System.Drawing.Point(485, 296)
+        Me.ButtonCancel.Location = New System.Drawing.Point(499, 296)
         Me.ButtonCancel.Name = "ButtonCancel"
         Me.ButtonCancel.Size = New System.Drawing.Size(143, 43)
         Me.ButtonCancel.TabIndex = 1
@@ -421,7 +498,7 @@ Partial Class mainForm
         '
         'ButtonOK
         '
-        Me.ButtonOK.Location = New System.Drawing.Point(314, 296)
+        Me.ButtonOK.Location = New System.Drawing.Point(319, 296)
         Me.ButtonOK.Name = "ButtonOK"
         Me.ButtonOK.Size = New System.Drawing.Size(143, 43)
         Me.ButtonOK.TabIndex = 0
@@ -516,6 +593,15 @@ Partial Class mainForm
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "名前"
         '
+        'cahngeButton
+        '
+        Me.cahngeButton.Location = New System.Drawing.Point(677, 296)
+        Me.cahngeButton.Name = "cahngeButton"
+        Me.cahngeButton.Size = New System.Drawing.Size(143, 43)
+        Me.cahngeButton.TabIndex = 14
+        Me.cahngeButton.Text = "既存商品編集"
+        Me.cahngeButton.UseVisualStyleBackColor = True
+        '
         'mainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
@@ -532,6 +618,8 @@ Partial Class mainForm
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
@@ -567,7 +655,6 @@ Partial Class mainForm
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents ButtonCancel As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents textRemarks As TextBox
     Friend WithEvents textItemName As TextBox
@@ -586,4 +673,13 @@ Partial Class mainForm
     Friend WithEvents Label14 As Label
     Friend WithEvents ButtonCancel_delivery As Button
     Friend WithEvents ButtonOK_delivery As Button
+    Friend WithEvents ButtonCancel As Button
+    Friend WithEvents ButtonCancel_used As Button
+    Friend WithEvents ButtonOK_used As Button
+    Friend WithEvents Label13 As Label
+    Friend WithEvents usedQuantity As TextBox
+    Friend WithEvents itemIndicationUsed As ComboBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents cahngeButton As Button
 End Class

@@ -94,7 +94,42 @@ Public Class mainForm
     '使用登録ぺージの表示
     Private Sub userdButton_Click(sender As Object, e As EventArgs) Handles userdButton.Click
         ShowTab(0)
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        ' SQLクエリの設定
+        Dim query As String = "SELECT item_number,item_name FROM iteminfo" ' iteminfoテーブルからitemName列を取得
+
+        'データベース接続とデータ取得
+        Using conn As New NpgsqlConnection(connString)
+            Dim cmd As New NpgsqlCommand(query, conn)
+            conn.Open()
+
+            Dim reader As NpgsqlDataReader = cmd.ExecuteReader()
+            While reader.Read()
+                'itemIndicationUsed（コンボボックス）にデータを追加
+                Dim combinedText As String = reader("item_number").ToString() & " ： " & reader("item_name").ToString()
+                itemIndicationUsed.Items.Add(combinedText)
+            End While
+
+            reader.Close()
+        End Using
     End Sub
+    '使用登録のキャンセルボタン押下時
+    Private Sub ButtonCancel_used_Click(sender As Object, e As EventArgs) Handles ButtonCancel_used.Click
+        itemIndicationUsed.Text = ""
+        usedQuantity.Text = ""
+    End Sub
+    '使用登録のOKボタン押下時
+    Private Sub ButtonOK_used_Click(sender As Object, e As EventArgs) Handles ButtonOK_used.Click
+        '選択項目を取得
+        Dim selectedItem As String = itemIndication.SelectedItem.ToString
+
+        'コンボボックス内の情報からitem_number情報を取得
+        Dim itemNumber As String = selectedItem.Split("：")(0)
+
+        AddInventoryUsed(itemNumber)
+    End Sub
+
     Private Sub ShowTab(index As Integer)
         ' タブのインデックス範囲を確認
         If index < 0 OrElse index >= allTabs.Count Then
@@ -119,11 +154,7 @@ Public Class mainForm
         Application.Exit()
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxPermission.CheckedChanged
-
-    End Sub
-
-    Private Sub ButtonCannel_user_Click(sender As Object, e As EventArgs) Handles ButtonCannel_user.Click
+    Private Sub ButtonCannel_user_Click(sender As Object, e As EventArgs) Handles ButtonCannel_user.Click, ButtonCancel.Click
         'テキストボックスの中身を空にする
         textUserName.Text = ""
         textPassword.Text = ""
@@ -200,7 +231,7 @@ Public Class mainForm
         End Using
     End Sub
 
-    Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click
+    Private Sub ButtonCancel_Click(sender As Object, e As EventArgs)
         'テキストボックスの中身を空にする
         textItemName.Text = ""
         mtextMoney.Text = ""
@@ -229,10 +260,6 @@ Public Class mainForm
         Dim itemNumber As String = selectedItem.Split("：")(0)
 
         AddInventory(itemNumber)
-    End Sub
-
-    Private Sub itemIndication_SelectedIndexChanged(sender As Object, e As EventArgs) Handles itemIndication.SelectedIndexChanged
-
     End Sub
 
     Private Sub AddInventory(itemNumber As Integer)
@@ -284,6 +311,57 @@ Public Class mainForm
         End Using
 
         MessageBox.Show("登録完了しました")
+    End Sub
+    Private Sub AddInventoryUsed(itemNumber As Integer)
+        '数量情報の取得
+        Dim usedQuantityInfo As Integer = Integer.Parse(usedQuantity.Text)
+
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        Using conn As New NpgsqlConnection(connString)
+            conn.Open()
+
+            'iteminfoテーブルからitem_netを取得
+            Dim query As String = "SELECT item_net FROM iteminfo WHERE item_number = @itemNumber"
+            Dim command As New NpgsqlCommand(query, conn)
+            command.Parameters.AddWithValue("@itemNumber", itemNumber)
+
+            Dim itemNet As Integer = Integer.Parse(command.ExecuteScalar().ToString())
+
+            '出庫数を計算
+            Dim inventoryUsed As Integer = itemNet * usedQuantityInfo
+
+            ' iteminventoryテーブルにitem_numberが存在するか確認
+            query = "SELECT inventory FROM iteminventory WHERE item_number = @itemNumber"
+            command = New NpgsqlCommand(query, conn)
+            command.Parameters.AddWithValue("@itemNumber", itemNumber)
+
+            Dim existingInventory As Object = command.ExecuteScalar()
+
+            If existingInventory IsNot Nothing Then
+                ' 既存の在庫が存在する場合、在庫を更新
+                Dim newInventory As Integer = Integer.Parse(existingInventory.ToString()) - inventoryUsed
+                query = "UPDATE iteminventory SET inventory = @newInventory, time_stamp = @timeStamp WHERE item_number = @itemNumber"
+                command = New NpgsqlCommand(query, conn)
+                command.Parameters.AddWithValue("@newInventory", newInventory)
+                command.Parameters.AddWithValue("@timeStamp", DateTime.Now)
+                command.Parameters.AddWithValue("@itemNumber", itemNumber)
+            Else
+                ' 既存の在庫が存在しない場合、新しいエントリを追加
+                MessageBox.Show("在庫の存在しない商品です。入庫情報の登録からお願いします")
+                End
+            End If
+
+            command.ExecuteNonQuery()
+
+        End Using
+
+        MessageBox.Show("登録完了しました")
+    End Sub
+
+    Private Sub cahngeButton_Click(sender As Object, e As EventArgs) Handles cahngeButton.Click
+        '変更登録用フォームを開く
+        existingItemInfoForm.Show()
     End Sub
 
 End Class

@@ -125,6 +125,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemInfo.vb" />
+    <Compile Include="existingItemInfoForm.Designer.vb">
+      <DependentUpon>existingItemInfoForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="existingItemInfoForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="loginForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +164,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="existingItemInfoForm.resx">
+      <DependentUpon>existingItemInfoForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.vb</DependentUpon>
     </EmbeddedResource>
