@@ -36,6 +36,7 @@ Partial Class existingItemInfoForm
         Me.ButtonOK_change = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.itemNo_change = New System.Windows.Forms.ComboBox()
+        Me.ButtonDellete_change = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'textRemarks_change
@@ -157,12 +158,22 @@ Partial Class existingItemInfoForm
         Me.itemNo_change.Size = New System.Drawing.Size(100, 31)
         Me.itemNo_change.TabIndex = 28
         '
+        'ButtonDellete_change
+        '
+        Me.ButtonDellete_change.Location = New System.Drawing.Point(147, 332)
+        Me.ButtonDellete_change.Name = "ButtonDellete_change"
+        Me.ButtonDellete_change.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonDellete_change.TabIndex = 29
+        Me.ButtonDellete_change.Text = "削除"
+        Me.ButtonDellete_change.UseVisualStyleBackColor = True
+        '
         'existingItemInfoForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 23.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SkyBlue
         Me.ClientSize = New System.Drawing.Size(880, 575)
+        Me.Controls.Add(Me.ButtonDellete_change)
         Me.Controls.Add(Me.itemNo_change)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.textRemarks_change)
@@ -200,4 +211,5 @@ Partial Class existingItemInfoForm
     Friend WithEvents ButtonOK_change As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents itemNo_change As ComboBox
+    Friend WithEvents ButtonDellete_change As Button
 End Class

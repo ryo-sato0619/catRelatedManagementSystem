@@ -50,6 +50,7 @@ Partial Class mainForm
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.cahngeButton = New System.Windows.Forms.Button()
         Me.textRemarks = New System.Windows.Forms.TextBox()
         Me.textItemName = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -71,7 +72,7 @@ Partial Class mainForm
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.cahngeButton = New System.Windows.Forms.Button()
+        Me.userInfoChangeButton = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -401,6 +402,16 @@ Partial Class mainForm
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "商品登録"
         '
+        'cahngeButton
+        '
+        Me.cahngeButton.Font = New System.Drawing.Font("Meiryo UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cahngeButton.Location = New System.Drawing.Point(677, 296)
+        Me.cahngeButton.Name = "cahngeButton"
+        Me.cahngeButton.Size = New System.Drawing.Size(143, 43)
+        Me.cahngeButton.TabIndex = 14
+        Me.cahngeButton.Text = "既存商品編集"
+        Me.cahngeButton.UseVisualStyleBackColor = True
+        '
         'textRemarks
         '
         Me.textRemarks.Location = New System.Drawing.Point(214, 235)
@@ -508,6 +519,7 @@ Partial Class mainForm
         'TabPage4
         '
         Me.TabPage4.BackColor = System.Drawing.Color.SkyBlue
+        Me.TabPage4.Controls.Add(Me.userInfoChangeButton)
         Me.TabPage4.Controls.Add(Me.ButtonCannel_user)
         Me.TabPage4.Controls.Add(Me.ButtonOK_user)
         Me.TabPage4.Controls.Add(Me.CheckBoxPermission)
@@ -593,14 +605,15 @@ Partial Class mainForm
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "名前"
         '
-        'cahngeButton
+        'userInfoChangeButton
         '
-        Me.cahngeButton.Location = New System.Drawing.Point(677, 296)
-        Me.cahngeButton.Name = "cahngeButton"
-        Me.cahngeButton.Size = New System.Drawing.Size(143, 43)
-        Me.cahngeButton.TabIndex = 14
-        Me.cahngeButton.Text = "既存商品編集"
-        Me.cahngeButton.UseVisualStyleBackColor = True
+        Me.userInfoChangeButton.Font = New System.Drawing.Font("Meiryo UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.userInfoChangeButton.Location = New System.Drawing.Point(671, 300)
+        Me.userInfoChangeButton.Name = "userInfoChangeButton"
+        Me.userInfoChangeButton.Size = New System.Drawing.Size(144, 42)
+        Me.userInfoChangeButton.TabIndex = 8
+        Me.userInfoChangeButton.Text = "登録内容変更"
+        Me.userInfoChangeButton.UseVisualStyleBackColor = True
         '
         'mainForm
         '
@@ -682,4 +695,5 @@ Partial Class mainForm
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents cahngeButton As Button
+    Friend WithEvents userInfoChangeButton As Button
 End Class

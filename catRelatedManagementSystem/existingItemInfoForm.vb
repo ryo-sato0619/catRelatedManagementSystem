@@ -107,9 +107,48 @@ Public Class existingItemInfoForm
             End Using
         End Using
     End Sub
-
+    '閉じるボタン押下時
     Private Sub ButtonClose_change_Click(sender As Object, e As EventArgs) Handles ButtonClose_change.Click
         Me.Close()
     End Sub
+    '削除ボタン押下時
+    Private Sub ButtonDellete_change_Click(sender As Object, e As EventArgs) Handles ButtonDellete_change.Click
+        'itemNo_changeの値を取得
+        Dim itemNo As Integer = itemNo_change.SelectedItem
 
+        Dim result As DialogResult
+        result = MessageBox.Show("商品番号" & itemNo & "を削除します" & vbCrLf & "削除後の復旧は出来ませんがよろしいでしょうか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            'YESを選択時
+            Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+
+            Using conn As New NpgsqlConnection(connString)
+                Dim query As String = "UPDATE iteminfo SET  display_flg = @display_flg, time_stamp = @time_stamp WHERE item_number = @itemNo;"
+                Using cmd As New NpgsqlCommand(query, conn)
+                    'パラメータの設定
+                    cmd.Parameters.AddWithValue("@time_stamp", Now())
+                    cmd.Parameters.AddWithValue("@itemNo", itemNo)
+                    cmd.Parameters.AddWithValue("@display_flg", False)
+
+                    '接続
+                    conn.Open()
+                    Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+                    If rowsAffected > 0 Then
+                        MessageBox.Show("削除成功しました")
+                        '商品番号リスト更新の為、リロード
+                        Me.Close()
+                        Dim newForm As New existingItemInfoForm()
+                        newForm.Show()
+                    Else
+                        MessageBox.Show("削除失敗しました")
+                    End If
+                End Using
+            End Using
+        Else
+            'NOを選択時
+            MessageBox.Show("キャンセルします")
+            Exit Sub
+        End If
+    End Sub
 End Class
