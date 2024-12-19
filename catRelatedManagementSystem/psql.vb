@@ -11,9 +11,11 @@ Module psql
     Sub sqlSt()
 
         Dim conStr As String = GetConnectionString("appsettings.json", "ConnectionStrings:PostgreSqlConnection")
-        pgsqlCon.ConnectionString = conStr
-        pgsqlCon.Open()
-
+        '接続状況のチェック
+        If pgsqlCon.State <> ConnectionState.Open Then
+            pgsqlCon.ConnectionString = conStr
+            pgsqlCon.Open()
+        End If
     End Sub
 
     'データベースの切断
