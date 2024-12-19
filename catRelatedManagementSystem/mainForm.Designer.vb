@@ -90,7 +90,8 @@ Partial Class mainForm
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer1.MaximumSize = New System.Drawing.Size(1180, 680)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SplitContainer1.MaximumSize = New System.Drawing.Size(708, 453)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -110,16 +111,18 @@ Partial Class mainForm
         Me.SplitContainer1.Panel2.AutoScrollMargin = New System.Drawing.Size(1200, 700)
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.RoyalBlue
         Me.SplitContainer1.Panel2.Controls.Add(Me.TabControl1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1178, 644)
-        Me.SplitContainer1.SplitterDistance = 142
+        Me.SplitContainer1.Size = New System.Drawing.Size(708, 441)
+        Me.SplitContainer1.SplitterDistance = 97
+        Me.SplitContainer1.SplitterWidth = 3
         Me.SplitContainer1.TabIndex = 0
         '
         'userdButton
         '
         Me.userdButton.Font = New System.Drawing.Font("Meiryo UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.userdButton.Location = New System.Drawing.Point(18, 83)
+        Me.userdButton.Location = New System.Drawing.Point(11, 55)
+        Me.userdButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.userdButton.Name = "userdButton"
-        Me.userdButton.Size = New System.Drawing.Size(135, 50)
+        Me.userdButton.Size = New System.Drawing.Size(81, 33)
         Me.userdButton.TabIndex = 7
         Me.userdButton.Text = "使用登録"
         Me.userdButton.UseVisualStyleBackColor = True
@@ -127,9 +130,10 @@ Partial Class mainForm
         'userAddButton
         '
         Me.userAddButton.Font = New System.Drawing.Font("Meiryo UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.userAddButton.Location = New System.Drawing.Point(583, 83)
+        Me.userAddButton.Location = New System.Drawing.Point(350, 55)
+        Me.userAddButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.userAddButton.Name = "userAddButton"
-        Me.userAddButton.Size = New System.Drawing.Size(135, 50)
+        Me.userAddButton.Size = New System.Drawing.Size(81, 33)
         Me.userAddButton.TabIndex = 6
         Me.userAddButton.Text = "ユーザー登録"
         Me.userAddButton.UseVisualStyleBackColor = True
@@ -137,9 +141,10 @@ Partial Class mainForm
         'logoutButton
         '
         Me.logoutButton.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.logoutButton.Location = New System.Drawing.Point(1031, 84)
+        Me.logoutButton.Location = New System.Drawing.Point(619, 56)
+        Me.logoutButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.logoutButton.Name = "logoutButton"
-        Me.logoutButton.Size = New System.Drawing.Size(135, 50)
+        Me.logoutButton.Size = New System.Drawing.Size(81, 33)
         Me.logoutButton.TabIndex = 5
         Me.logoutButton.Text = "ログアウト"
         Me.logoutButton.UseVisualStyleBackColor = True
@@ -147,9 +152,10 @@ Partial Class mainForm
         'itemAddButton
         '
         Me.itemAddButton.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.itemAddButton.Location = New System.Drawing.Point(442, 83)
+        Me.itemAddButton.Location = New System.Drawing.Point(265, 55)
+        Me.itemAddButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.itemAddButton.Name = "itemAddButton"
-        Me.itemAddButton.Size = New System.Drawing.Size(135, 50)
+        Me.itemAddButton.Size = New System.Drawing.Size(81, 33)
         Me.itemAddButton.TabIndex = 3
         Me.itemAddButton.Text = "商品登録"
         Me.itemAddButton.UseVisualStyleBackColor = True
@@ -157,9 +163,10 @@ Partial Class mainForm
         'deliveryAddButton
         '
         Me.deliveryAddButton.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.deliveryAddButton.Location = New System.Drawing.Point(301, 84)
+        Me.deliveryAddButton.Location = New System.Drawing.Point(181, 56)
+        Me.deliveryAddButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.deliveryAddButton.Name = "deliveryAddButton"
-        Me.deliveryAddButton.Size = New System.Drawing.Size(135, 50)
+        Me.deliveryAddButton.Size = New System.Drawing.Size(81, 33)
         Me.deliveryAddButton.TabIndex = 2
         Me.deliveryAddButton.Text = "納品登録"
         Me.deliveryAddButton.UseVisualStyleBackColor = True
@@ -167,9 +174,10 @@ Partial Class mainForm
         'inventoryButton
         '
         Me.inventoryButton.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.inventoryButton.Location = New System.Drawing.Point(160, 83)
+        Me.inventoryButton.Location = New System.Drawing.Point(96, 55)
+        Me.inventoryButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.inventoryButton.Name = "inventoryButton"
-        Me.inventoryButton.Size = New System.Drawing.Size(135, 50)
+        Me.inventoryButton.Size = New System.Drawing.Size(81, 33)
         Me.inventoryButton.TabIndex = 1
         Me.inventoryButton.Text = "在庫管理"
         Me.inventoryButton.UseVisualStyleBackColor = True
@@ -179,9 +187,10 @@ Partial Class mainForm
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Meiryo UI", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(7, 6)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(215, 36)
+        Me.Label1.Size = New System.Drawing.Size(148, 24)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "在庫管理システム"
         '
@@ -193,11 +202,12 @@ Partial Class mainForm
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(0, 3)
-        Me.TabControl1.MaximumSize = New System.Drawing.Size(1180, 490)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 2)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TabControl1.MaximumSize = New System.Drawing.Size(708, 327)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1180, 490)
+        Me.TabControl1.Size = New System.Drawing.Size(708, 327)
         Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabControl1.TabIndex = 0
         '
@@ -211,27 +221,30 @@ Partial Class mainForm
         Me.TabPage5.Controls.Add(Me.itemIndicationUsed)
         Me.TabPage5.Controls.Add(Me.Label15)
         Me.TabPage5.Controls.Add(Me.Label16)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 32)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1172, 454)
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TabPage5.Size = New System.Drawing.Size(700, 299)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "使用登録"
         '
         'ButtonCancel_used
         '
-        Me.ButtonCancel_used.Location = New System.Drawing.Point(517, 175)
+        Me.ButtonCancel_used.Location = New System.Drawing.Point(310, 117)
+        Me.ButtonCancel_used.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonCancel_used.Name = "ButtonCancel_used"
-        Me.ButtonCancel_used.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonCancel_used.Size = New System.Drawing.Size(86, 29)
         Me.ButtonCancel_used.TabIndex = 15
         Me.ButtonCancel_used.Text = "キャンセル"
         Me.ButtonCancel_used.UseVisualStyleBackColor = True
         '
         'ButtonOK_used
         '
-        Me.ButtonOK_used.Location = New System.Drawing.Point(329, 175)
+        Me.ButtonOK_used.Location = New System.Drawing.Point(197, 117)
+        Me.ButtonOK_used.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonOK_used.Name = "ButtonOK_used"
-        Me.ButtonOK_used.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonOK_used.Size = New System.Drawing.Size(86, 29)
         Me.ButtonOK_used.TabIndex = 14
         Me.ButtonOK_used.Text = "登録"
         Me.ButtonOK_used.UseVisualStyleBackColor = True
@@ -239,42 +252,47 @@ Partial Class mainForm
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(266, 119)
+        Me.Label13.Location = New System.Drawing.Point(160, 79)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(28, 23)
+        Me.Label13.Size = New System.Drawing.Size(19, 15)
         Me.Label13.TabIndex = 13
         Me.Label13.Text = "個"
         '
         'usedQuantity
         '
-        Me.usedQuantity.Location = New System.Drawing.Point(136, 112)
+        Me.usedQuantity.Location = New System.Drawing.Point(82, 75)
+        Me.usedQuantity.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.usedQuantity.Name = "usedQuantity"
-        Me.usedQuantity.Size = New System.Drawing.Size(87, 30)
+        Me.usedQuantity.Size = New System.Drawing.Size(54, 23)
         Me.usedQuantity.TabIndex = 12
         '
         'itemIndicationUsed
         '
         Me.itemIndicationUsed.FormattingEnabled = True
-        Me.itemIndicationUsed.Location = New System.Drawing.Point(136, 54)
+        Me.itemIndicationUsed.Location = New System.Drawing.Point(82, 36)
+        Me.itemIndicationUsed.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.itemIndicationUsed.Name = "itemIndicationUsed"
-        Me.itemIndicationUsed.Size = New System.Drawing.Size(346, 31)
+        Me.itemIndicationUsed.Size = New System.Drawing.Size(209, 23)
         Me.itemIndicationUsed.TabIndex = 11
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(42, 119)
+        Me.Label15.Location = New System.Drawing.Point(25, 79)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(46, 23)
+        Me.Label15.Size = New System.Drawing.Size(31, 15)
         Me.Label15.TabIndex = 10
         Me.Label15.Text = "数量"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(42, 54)
+        Me.Label16.Location = New System.Drawing.Point(25, 36)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(46, 23)
+        Me.Label16.Size = New System.Drawing.Size(31, 15)
         Me.Label16.TabIndex = 9
         Me.Label16.Text = "品名"
         '
@@ -282,10 +300,11 @@ Partial Class mainForm
         '
         Me.TabPage1.Controls.Add(Me.DataGridView1)
         Me.TabPage1.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabPage1.Location = New System.Drawing.Point(4, 32)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1172, 454)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TabPage1.Size = New System.Drawing.Size(700, 299)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "在庫一覧"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -294,11 +313,12 @@ Partial Class mainForm
         '
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.SkyBlue
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 6)
+        Me.DataGridView1.Location = New System.Drawing.Point(2, 4)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 62
         Me.DataGridView1.RowTemplate.Height = 27
-        Me.DataGridView1.Size = New System.Drawing.Size(1166, 448)
+        Me.DataGridView1.Size = New System.Drawing.Size(700, 299)
         Me.DataGridView1.TabIndex = 1
         '
         'TabPage2
@@ -312,27 +332,30 @@ Partial Class mainForm
         Me.TabPage2.Controls.Add(Me.Label12)
         Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TabPage2.Location = New System.Drawing.Point(4, 32)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1172, 454)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TabPage2.Size = New System.Drawing.Size(700, 299)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "納品登録"
         '
         'ButtonCancel_delivery
         '
-        Me.ButtonCancel_delivery.Location = New System.Drawing.Point(517, 177)
+        Me.ButtonCancel_delivery.Location = New System.Drawing.Point(310, 118)
+        Me.ButtonCancel_delivery.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonCancel_delivery.Name = "ButtonCancel_delivery"
-        Me.ButtonCancel_delivery.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonCancel_delivery.Size = New System.Drawing.Size(86, 29)
         Me.ButtonCancel_delivery.TabIndex = 8
         Me.ButtonCancel_delivery.Text = "キャンセル"
         Me.ButtonCancel_delivery.UseVisualStyleBackColor = True
         '
         'ButtonOK_delivery
         '
-        Me.ButtonOK_delivery.Location = New System.Drawing.Point(329, 177)
+        Me.ButtonOK_delivery.Location = New System.Drawing.Point(197, 118)
+        Me.ButtonOK_delivery.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonOK_delivery.Name = "ButtonOK_delivery"
-        Me.ButtonOK_delivery.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonOK_delivery.Size = New System.Drawing.Size(86, 29)
         Me.ButtonOK_delivery.TabIndex = 7
         Me.ButtonOK_delivery.Text = "登録"
         Me.ButtonOK_delivery.UseVisualStyleBackColor = True
@@ -340,42 +363,47 @@ Partial Class mainForm
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(266, 121)
+        Me.Label14.Location = New System.Drawing.Point(160, 81)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(28, 23)
+        Me.Label14.Size = New System.Drawing.Size(19, 15)
         Me.Label14.TabIndex = 5
         Me.Label14.Text = "個"
         '
         'deliveryQuantity
         '
-        Me.deliveryQuantity.Location = New System.Drawing.Point(136, 114)
+        Me.deliveryQuantity.Location = New System.Drawing.Point(82, 76)
+        Me.deliveryQuantity.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.deliveryQuantity.Name = "deliveryQuantity"
-        Me.deliveryQuantity.Size = New System.Drawing.Size(87, 30)
+        Me.deliveryQuantity.Size = New System.Drawing.Size(54, 23)
         Me.deliveryQuantity.TabIndex = 4
         '
         'itemIndication
         '
         Me.itemIndication.FormattingEnabled = True
-        Me.itemIndication.Location = New System.Drawing.Point(136, 56)
+        Me.itemIndication.Location = New System.Drawing.Point(82, 37)
+        Me.itemIndication.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.itemIndication.Name = "itemIndication"
-        Me.itemIndication.Size = New System.Drawing.Size(346, 31)
+        Me.itemIndication.Size = New System.Drawing.Size(209, 23)
         Me.itemIndication.TabIndex = 3
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(42, 121)
+        Me.Label12.Location = New System.Drawing.Point(25, 81)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(46, 23)
+        Me.Label12.Size = New System.Drawing.Size(31, 15)
         Me.Label12.TabIndex = 1
         Me.Label12.Text = "数量"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(42, 56)
+        Me.Label11.Location = New System.Drawing.Point(25, 37)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(46, 23)
+        Me.Label11.Size = New System.Drawing.Size(31, 15)
         Me.Label11.TabIndex = 0
         Me.Label11.Text = "品名"
         '
@@ -395,123 +423,137 @@ Partial Class mainForm
         Me.TabPage3.Controls.Add(Me.Label2)
         Me.TabPage3.Controls.Add(Me.ButtonCancel)
         Me.TabPage3.Controls.Add(Me.ButtonOK)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 32)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1172, 454)
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TabPage3.Size = New System.Drawing.Size(700, 299)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "商品登録"
         '
         'cahngeButton
         '
         Me.cahngeButton.Font = New System.Drawing.Font("Meiryo UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.cahngeButton.Location = New System.Drawing.Point(677, 296)
+        Me.cahngeButton.Location = New System.Drawing.Point(406, 197)
+        Me.cahngeButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cahngeButton.Name = "cahngeButton"
-        Me.cahngeButton.Size = New System.Drawing.Size(143, 43)
+        Me.cahngeButton.Size = New System.Drawing.Size(86, 29)
         Me.cahngeButton.TabIndex = 14
         Me.cahngeButton.Text = "既存商品編集"
         Me.cahngeButton.UseVisualStyleBackColor = True
         '
         'textRemarks
         '
-        Me.textRemarks.Location = New System.Drawing.Point(214, 235)
+        Me.textRemarks.Location = New System.Drawing.Point(128, 157)
+        Me.textRemarks.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.textRemarks.Name = "textRemarks"
-        Me.textRemarks.Size = New System.Drawing.Size(293, 30)
+        Me.textRemarks.Size = New System.Drawing.Size(177, 23)
         Me.textRemarks.TabIndex = 13
         '
         'textItemName
         '
-        Me.textItemName.Location = New System.Drawing.Point(214, 46)
+        Me.textItemName.Location = New System.Drawing.Point(128, 31)
+        Me.textItemName.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.textItemName.Name = "textItemName"
-        Me.textItemName.Size = New System.Drawing.Size(293, 30)
+        Me.textItemName.Size = New System.Drawing.Size(177, 23)
         Me.textItemName.TabIndex = 10
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(348, 176)
+        Me.Label7.Location = New System.Drawing.Point(209, 117)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 23)
+        Me.Label7.Size = New System.Drawing.Size(39, 15)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "個入り"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(348, 114)
+        Me.Label6.Location = New System.Drawing.Point(209, 76)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(28, 23)
+        Me.Label6.Size = New System.Drawing.Size(19, 15)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "円"
         '
         'mtextNet
         '
-        Me.mtextNet.Location = New System.Drawing.Point(214, 169)
+        Me.mtextNet.Location = New System.Drawing.Point(128, 113)
+        Me.mtextNet.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.mtextNet.Mask = "999999"
         Me.mtextNet.Name = "mtextNet"
-        Me.mtextNet.Size = New System.Drawing.Size(105, 30)
+        Me.mtextNet.Size = New System.Drawing.Size(65, 23)
         Me.mtextNet.TabIndex = 12
         Me.mtextNet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'mtextMoney
         '
-        Me.mtextMoney.Location = New System.Drawing.Point(214, 107)
+        Me.mtextMoney.Location = New System.Drawing.Point(128, 71)
+        Me.mtextMoney.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.mtextMoney.Mask = "999999"
         Me.mtextMoney.Name = "mtextMoney"
-        Me.mtextMoney.Size = New System.Drawing.Size(105, 30)
+        Me.mtextMoney.Size = New System.Drawing.Size(65, 23)
         Me.mtextMoney.TabIndex = 11
         Me.mtextMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(37, 235)
+        Me.Label5.Location = New System.Drawing.Point(22, 157)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(46, 23)
+        Me.Label5.Size = New System.Drawing.Size(31, 15)
         Me.Label5.TabIndex = 5
         Me.Label5.Text = "備考"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(37, 169)
+        Me.Label4.Location = New System.Drawing.Point(22, 113)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(64, 23)
+        Me.Label4.Size = New System.Drawing.Size(43, 15)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "内容量"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(37, 107)
+        Me.Label3.Location = New System.Drawing.Point(22, 71)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 23)
+        Me.Label3.Size = New System.Drawing.Size(31, 15)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "金額"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(37, 53)
+        Me.Label2.Location = New System.Drawing.Point(22, 35)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 23)
+        Me.Label2.Size = New System.Drawing.Size(31, 15)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "品名"
         '
         'ButtonCancel
         '
-        Me.ButtonCancel.Location = New System.Drawing.Point(499, 296)
+        Me.ButtonCancel.Location = New System.Drawing.Point(299, 197)
+        Me.ButtonCancel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonCancel.Name = "ButtonCancel"
-        Me.ButtonCancel.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonCancel.Size = New System.Drawing.Size(86, 29)
         Me.ButtonCancel.TabIndex = 1
         Me.ButtonCancel.Text = "キャンセル"
         Me.ButtonCancel.UseVisualStyleBackColor = True
         '
         'ButtonOK
         '
-        Me.ButtonOK.Location = New System.Drawing.Point(319, 296)
+        Me.ButtonOK.Location = New System.Drawing.Point(191, 197)
+        Me.ButtonOK.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonOK.Name = "ButtonOK"
-        Me.ButtonOK.Size = New System.Drawing.Size(143, 43)
+        Me.ButtonOK.Size = New System.Drawing.Size(86, 29)
         Me.ButtonOK.TabIndex = 0
         Me.ButtonOK.Text = "登録"
         Me.ButtonOK.UseVisualStyleBackColor = True
@@ -528,37 +570,41 @@ Partial Class mainForm
         Me.TabPage4.Controls.Add(Me.Label10)
         Me.TabPage4.Controls.Add(Me.Label9)
         Me.TabPage4.Controls.Add(Me.Label8)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 32)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(1172, 454)
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TabPage4.Size = New System.Drawing.Size(700, 299)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "ユーザー登録"
         '
         'userInfoChangeButton
         '
         Me.userInfoChangeButton.Font = New System.Drawing.Font("Meiryo UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.userInfoChangeButton.Location = New System.Drawing.Point(671, 300)
+        Me.userInfoChangeButton.Location = New System.Drawing.Point(403, 200)
+        Me.userInfoChangeButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.userInfoChangeButton.Name = "userInfoChangeButton"
-        Me.userInfoChangeButton.Size = New System.Drawing.Size(144, 42)
+        Me.userInfoChangeButton.Size = New System.Drawing.Size(86, 28)
         Me.userInfoChangeButton.TabIndex = 8
         Me.userInfoChangeButton.Text = "登録内容変更"
         Me.userInfoChangeButton.UseVisualStyleBackColor = True
         '
         'ButtonCannel_user
         '
-        Me.ButtonCannel_user.Location = New System.Drawing.Point(481, 300)
+        Me.ButtonCannel_user.Location = New System.Drawing.Point(289, 200)
+        Me.ButtonCannel_user.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonCannel_user.Name = "ButtonCannel_user"
-        Me.ButtonCannel_user.Size = New System.Drawing.Size(144, 42)
+        Me.ButtonCannel_user.Size = New System.Drawing.Size(86, 28)
         Me.ButtonCannel_user.TabIndex = 7
         Me.ButtonCannel_user.Text = "キャンセル"
         Me.ButtonCannel_user.UseVisualStyleBackColor = True
         '
         'ButtonOK_user
         '
-        Me.ButtonOK_user.Location = New System.Drawing.Point(297, 300)
+        Me.ButtonOK_user.Location = New System.Drawing.Point(178, 200)
+        Me.ButtonOK_user.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonOK_user.Name = "ButtonOK_user"
-        Me.ButtonOK_user.Size = New System.Drawing.Size(144, 42)
+        Me.ButtonOK_user.Size = New System.Drawing.Size(86, 28)
         Me.ButtonOK_user.TabIndex = 6
         Me.ButtonOK_user.Text = "登録"
         Me.ButtonOK_user.UseVisualStyleBackColor = True
@@ -566,63 +612,70 @@ Partial Class mainForm
         'CheckBoxPermission
         '
         Me.CheckBoxPermission.AutoSize = True
-        Me.CheckBoxPermission.Location = New System.Drawing.Point(252, 206)
+        Me.CheckBoxPermission.Location = New System.Drawing.Point(151, 137)
+        Me.CheckBoxPermission.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CheckBoxPermission.Name = "CheckBoxPermission"
-        Me.CheckBoxPermission.Size = New System.Drawing.Size(108, 27)
+        Me.CheckBoxPermission.Size = New System.Drawing.Size(74, 19)
         Me.CheckBoxPermission.TabIndex = 4
         Me.CheckBoxPermission.Text = "権限有無"
         Me.CheckBoxPermission.UseVisualStyleBackColor = True
         '
         'textPassword
         '
-        Me.textPassword.Location = New System.Drawing.Point(252, 126)
+        Me.textPassword.Location = New System.Drawing.Point(151, 84)
+        Me.textPassword.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.textPassword.Name = "textPassword"
         Me.textPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.textPassword.Size = New System.Drawing.Size(293, 30)
+        Me.textPassword.Size = New System.Drawing.Size(177, 23)
         Me.textPassword.TabIndex = 3
         '
         'textUserName
         '
-        Me.textUserName.Location = New System.Drawing.Point(252, 58)
+        Me.textUserName.Location = New System.Drawing.Point(151, 39)
+        Me.textUserName.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.textUserName.Name = "textUserName"
-        Me.textUserName.Size = New System.Drawing.Size(293, 30)
+        Me.textUserName.Size = New System.Drawing.Size(177, 23)
         Me.textUserName.TabIndex = 2
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(61, 206)
+        Me.Label10.Location = New System.Drawing.Point(37, 137)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(100, 23)
+        Me.Label10.Size = New System.Drawing.Size(67, 15)
         Me.Label10.TabIndex = 2
         Me.Label10.Text = "管理者権限"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(61, 133)
+        Me.Label9.Location = New System.Drawing.Point(37, 89)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(81, 23)
+        Me.Label9.Size = New System.Drawing.Size(53, 15)
         Me.Label9.TabIndex = 1
         Me.Label9.Text = "パスワード"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(61, 65)
+        Me.Label8.Location = New System.Drawing.Point(37, 43)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(46, 23)
+        Me.Label8.Size = New System.Drawing.Size(31, 15)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "名前"
         '
         'mainForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1178, 644)
+        Me.ClientSize = New System.Drawing.Size(710, 441)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.MaximumSize = New System.Drawing.Size(1200, 700)
-        Me.MinimumSize = New System.Drawing.Size(1200, 700)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MaximumSize = New System.Drawing.Size(726, 480)
+        Me.MinimumSize = New System.Drawing.Size(726, 480)
         Me.Name = "mainForm"
         Me.Text = "メイン"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
