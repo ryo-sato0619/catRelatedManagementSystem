@@ -29,87 +29,59 @@ Public Class mainForm
     End Sub
     '在庫一覧情報の読み込み
     Private Sub LoadData()
-        'データベース接続
-        psql.sqlSt()
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
         ' SQLクエリの設定
-        Dim query As String = "SELECT iteminventory.item_number,iteminfo.item_name,iteminventory.inventory,iteminfo.item_remarks,iteminventory.time_stamp FROM iteminventory INNER JOIN iteminfo ON iteminventory.item_number = iteminfo.item_number;"
+        Dim query As String = "SELECT item_number, item_name, item_money, item_net, item_remarks, time_stamp FROM iteminfo"
 
         ' データベース接続とデータ取得
-        'Using connection As New NpgsqlConnection(connString)
-        'connection.Open()
+        Using connection As New NpgsqlConnection(connString)
+            connection.Open()
 
-        ' データテーブルの作成
-        Dim dataTable As New DataTable()
-        Dim adapter As New NpgsqlDataAdapter(query, psql.pgsqlCon)
-        adapter.Fill(dataTable)
+            ' データテーブルの作成
+            Dim dataTable As New DataTable()
+            Dim adapter As New NpgsqlDataAdapter(query, connection)
+            adapter.Fill(dataTable)
 
-        ' カラム名の変更
-        dataTable.Columns("item_number").ColumnName = "商品番号"
-        dataTable.Columns("item_name").ColumnName = "商品名"
-        dataTable.Columns("inventory").ColumnName = "在庫数"
-        dataTable.Columns("item_remarks").ColumnName = "備考"
-        dataTable.Columns("time_stamp").ColumnName = "最終更新日"
+            ' カラム名の変更
+            dataTable.Columns("item_number").ColumnName = "商品番号"
+            dataTable.Columns("item_name").ColumnName = "商品名"
+            dataTable.Columns("item_money").ColumnName = "単価"
+            dataTable.Columns("item_net").ColumnName = "内容量"
+            dataTable.Columns("item_remarks").ColumnName = "備考"
+            dataTable.Columns("time_stamp").ColumnName = "最終更新日"
 
-        ' DataGridViewにデータをバインド
-        DataGridView1.DataSource = dataTable
+            ' DataGridViewにデータをバインド
+            DataGridView1.DataSource = dataTable
+        End Using
 
-        'データベース接続を閉じる
-        psql.sqlCl()
     End Sub
 
     '在庫管理ページの表示
     Private Sub inventoryButton_Click(sender As Object, e As EventArgs) Handles inventoryButton.Click
         ShowTab(1)
-        'データベース接続
-        psql.sqlSt()
-        ' SQLクエリの設定
-        Dim query As String = "SELECT iteminventory.item_number,iteminfo.item_name,iteminventory.inventory,iteminfo.item_remarks,iteminventory.time_stamp FROM iteminventory INNER JOIN iteminfo ON iteminventory.item_number = iteminfo.item_number;"
-
-        ' データベース接続とデータ取得
-        'Using connection As New NpgsqlConnection(connString)
-        'connection.Open()
-
-        ' データテーブルの作成
-        Dim dataTable As New DataTable()
-        Dim adapter As New NpgsqlDataAdapter(query, psql.pgsqlCon)
-        adapter.Fill(dataTable)
-
-        ' カラム名の変更
-        dataTable.Columns("item_number").ColumnName = "商品番号"
-        dataTable.Columns("item_name").ColumnName = "商品名"
-        dataTable.Columns("inventory").ColumnName = "在庫数"
-        dataTable.Columns("item_remarks").ColumnName = "備考"
-        dataTable.Columns("time_stamp").ColumnName = "最終更新日"
-
-        ' DataGridViewにデータをバインド
-        DataGridView1.DataSource = dataTable
-
-        'データベース接続を閉じる
-        psql.sqlCl()
     End Sub
     '納品登録ページの表示
     Private Sub deliveryAddButton_Click(sender As Object, e As EventArgs) Handles deliveryAddButton.Click
         ShowTab(2)
-        'コンボボックスをクリア
-        itemIndication.Items.Clear()
-        'データベース接続
-        psql.sqlSt()
-        'SQLクエリ
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        ' SQLクエリの設定
         Dim query As String = "SELECT item_number,item_name FROM iteminfo" ' iteminfoテーブルからitemName列を取得
 
         'データベース接続とデータ取得
-        Dim cmd As New NpgsqlCommand(query, psql.pgsqlCon)
+        Using conn As New NpgsqlConnection(connString)
+            Dim cmd As New NpgsqlCommand(query, conn)
+            conn.Open()
 
-        Dim reader As NpgsqlDataReader = cmd.ExecuteReader()
+            Dim reader As NpgsqlDataReader = cmd.ExecuteReader()
             While reader.Read()
                 'itemIndication（コンボボックス）にデータを追加
                 Dim combinedText As String = reader("item_number").ToString() & " ： " & reader("item_name").ToString()
                 itemIndication.Items.Add(combinedText)
             End While
 
-        reader.Close()
-        'データベース接続を閉じる
-        psql.sqlCl()
+            reader.Close()
+        End Using
     End Sub
     '商品登録ページの表示
     Private Sub itemAddButton_Click(sender As Object, e As EventArgs) Handles itemAddButton.Click
@@ -122,28 +94,25 @@ Public Class mainForm
     '使用登録ぺージの表示
     Private Sub userdButton_Click(sender As Object, e As EventArgs) Handles userdButton.Click
         ShowTab(0)
-
-        'コンボボックスをクリア
-        itemIndicationUsed.Items.Clear()
-        'データベース接続
-        psql.sqlSt()
-        'SQLクエリ
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        ' SQLクエリの設定
         Dim query As String = "SELECT item_number,item_name FROM iteminfo" ' iteminfoテーブルからitemName列を取得
 
         'データベース接続とデータ取得
-        'Using conn As New NpgsqlConnection(connString)
-        Dim cmd As New NpgsqlCommand(query, psql.pgsqlCon)
+        Using conn As New NpgsqlConnection(connString)
+            Dim cmd As New NpgsqlCommand(query, conn)
+            conn.Open()
 
-        Dim reader As NpgsqlDataReader = cmd.ExecuteReader()
+            Dim reader As NpgsqlDataReader = cmd.ExecuteReader()
             While reader.Read()
                 'itemIndicationUsed（コンボボックス）にデータを追加
                 Dim combinedText As String = reader("item_number").ToString() & " ： " & reader("item_name").ToString()
                 itemIndicationUsed.Items.Add(combinedText)
             End While
 
-        reader.Close()
-        'データベース接続を閉じる
-        psql.sqlCl()
+            reader.Close()
+        End Using
     End Sub
     '使用登録のキャンセルボタン押下時
     Private Sub ButtonCancel_used_Click(sender As Object, e As EventArgs) Handles ButtonCancel_used.Click
@@ -153,7 +122,7 @@ Public Class mainForm
     '使用登録のOKボタン押下時
     Private Sub ButtonOK_used_Click(sender As Object, e As EventArgs) Handles ButtonOK_used.Click
         '選択項目を取得
-        Dim selectedItem As String = itemIndicationUsed.SelectedItem.ToString
+        Dim selectedItem As String = itemIndication.SelectedItem.ToString
 
         'コンボボックス内の情報からitem_number情報を取得
         Dim itemNumber As String = selectedItem.Split("：")(0)
@@ -198,27 +167,30 @@ Public Class mainForm
         Dim password As String = textPassword.Text
         Dim authority As Boolean = CheckBoxPermission.Checked
 
-        ' データベース接続
-        psql.sqlSt()
-        'SQLクエリ INSERT 文の作成
-        Dim query As String = "INSERT INTO userinfo (user_name, password, authority) VALUES (@user_name, @password, @authority)"
+        ' データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        Using conn As New NpgsqlConnection(connString)
+            conn.Open()
 
-        Using cmd As New NpgsqlCommand(query, psql.pgsqlCon)
-            ' パラメータの設定
-            cmd.Parameters.AddWithValue("@user_name", userName)
-            cmd.Parameters.AddWithValue("@password", password)
-            cmd.Parameters.AddWithValue("@authority", authority)
+            ' SQL INSERT 文の作成
+            Dim query As String = "INSERT INTO userinfo (user_name, password, authority) VALUES (@user_name, @password, @authority)"
 
-            ' SQL INSERT 文の実行
-            Try
-                cmd.ExecuteNonQuery()
-                MessageBox.Show("データの登録が成功しました。")
-            Catch ex As Exception
-                MessageBox.Show("データの登録に失敗しました: " & ex.Message)
-            End Try
+            Using cmd As New NpgsqlCommand(query, conn)
+                ' パラメータの設定
+                cmd.Parameters.AddWithValue("@user_name", userName)
+                cmd.Parameters.AddWithValue("@password", password)
+                cmd.Parameters.AddWithValue("@authority", authority)
+
+                ' SQL INSERT 文の実行
+                Try
+                    cmd.ExecuteNonQuery()
+                    MessageBox.Show("データの登録が成功しました。")
+                Catch ex As Exception
+                    MessageBox.Show("データの登録に失敗しました: " & ex.Message)
+                End Try
+            End Using
         End Using
-        ' データベース接続を閉じる
-        psql.sqlCl()
+
     End Sub
 
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
@@ -229,32 +201,34 @@ Public Class mainForm
         Dim itemRemarks As String = textRemarks.Text
         Dim currentTime As DateTime = DateTime.Now()
 
-        'データベース接続
-        psql.sqlSt()
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        Using conn As New NpgsqlConnection(connString)
 
-        'SQLクエリ INSERT文の作成
-        Dim query As String = "INSERT INTO iteminfo (item_name, item_money, item_net, item_remarks, time_stamp) VALUES (@item_name, @item_money, @item_net, @item_remarks, @time_stamp)"
+            conn.Open()
 
-        Using cmd As New NpgsqlCommand(query, psql.pgsqlCon)
-            'パラメータの設定
-            cmd.Parameters.AddWithValue("@item_name", itemName)
-            cmd.Parameters.AddWithValue("@item_money", itemMoney)
-            cmd.Parameters.AddWithValue("@item_net", itemNet)
-            cmd.Parameters.AddWithValue("@item_remarks", itemRemarks)
-            cmd.Parameters.AddWithValue("@time_stamp", currentTime)
-            cmd.Parameters.AddWithValue("@display_flg", "True")
+            'SQL INSERT文の作成
+            Dim query As String = "INSERT INTO iteminfo (item_name, item_money, item_net, item_remarks, time_stamp) VALUES (@item_name, @item_money, @item_net, @item_remarks, @time_stamp)"
 
-            'SQL INSERT文の実行
-            Try
-                cmd.ExecuteNonQuery()
-                MessageBox.Show("商品データの登録が成功しました")
-            Catch ex As Exception
-                MessageBox.Show("商品データの登録に失敗しました" & ex.Message)
+            Using cmd As New NpgsqlCommand(query, conn)
+                'パラメータの設定
+                cmd.Parameters.AddWithValue("@item_name", itemName)
+                cmd.Parameters.AddWithValue("@item_money", itemMoney)
+                cmd.Parameters.AddWithValue("@item_net", itemNet)
+                cmd.Parameters.AddWithValue("@item_remarks", itemRemarks)
+                cmd.Parameters.AddWithValue("@time_stamp", currentTime)
+                cmd.Parameters.AddWithValue("@display_flg", "True")
 
-            End Try
+                'SQL INSERT文の実行
+                Try
+                    cmd.ExecuteNonQuery()
+                    MessageBox.Show("商品データの登録が成功しました")
+                Catch ex As Exception
+                    MessageBox.Show("商品データの登録に失敗しました" & ex.Message)
+
+                End Try
+            End Using
         End Using
-        'データベース接続を閉じる
-        psql.sqlCl()
     End Sub
 
     Private Sub ButtonCancel_Click(sender As Object, e As EventArgs)
@@ -287,94 +261,102 @@ Public Class mainForm
 
         AddInventory(itemNumber)
     End Sub
-    '入庫処理
+
     Private Sub AddInventory(itemNumber As Integer)
         '数量情報の取得
         Dim deliveryQuantityInfo As Integer = Integer.Parse(deliveryQuantity.Text)
 
-        'データベース接続
-        psql.sqlSt()
-        'SQLクエリ
-        Dim query As String = "SELECT item_net FROM iteminfo WHERE item_number = @itemNumber"
-        Dim command As New NpgsqlCommand(query, psql.pgsqlCon)
-        command.Parameters.AddWithValue("@itemNumber", itemNumber)
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        Using conn As New NpgsqlConnection(connString)
+            conn.Open()
 
-        Dim itemNet As Integer = Integer.Parse(command.ExecuteScalar().ToString())
-
-        '入庫数を計算
-        Dim inventory As Integer = itemNet * deliveryQuantityInfo
-
-        ' iteminventoryテーブルにitem_numberが存在するか確認
-        query = "SELECT inventory FROM iteminventory WHERE item_number = @itemNumber"
-        command = New NpgsqlCommand(query, psql.pgsqlCon)
-        command.Parameters.AddWithValue("@itemNumber", itemNumber)
-
-        Dim existingInventory As Object = command.ExecuteScalar()
-
-        If existingInventory IsNot Nothing Then
-            ' 既存の在庫が存在する場合、在庫を更新
-            Dim newInventory As Integer = Integer.Parse(existingInventory.ToString()) + inventory
-            query = "UPDATE iteminventory SET inventory = @newInventory, time_stamp = @timeStamp WHERE item_number = @itemNumber"
-            command = New NpgsqlCommand(query, psql.pgsqlCon)
-            command.Parameters.AddWithValue("@newInventory", newInventory)
-            command.Parameters.AddWithValue("@timeStamp", DateTime.Now)
+            'iteminfoテーブルからitem_netを取得
+            Dim query As String = "SELECT item_net FROM iteminfo WHERE item_number = @itemNumber"
+            Dim command As New NpgsqlCommand(query, conn)
             command.Parameters.AddWithValue("@itemNumber", itemNumber)
-        Else
-            ' 既存の在庫が存在しない場合、新しいエントリを追加
-            query = "INSERT INTO iteminventory (item_number, inventory, display_flg, time_stamp) VALUES (@itemNumber, @inventory, @displayFlg, @timeStamp)"
-            command = New NpgsqlCommand(query, psql.pgsqlCon)
-            command.Parameters.AddWithValue("@itemNumber", itemNumber)
-            command.Parameters.AddWithValue("@inventory", inventory)
-            command.Parameters.AddWithValue("@displayFlg", True)
-            command.Parameters.AddWithValue("@timeStamp", DateTime.Now)
-        End If
 
-        command.ExecuteNonQuery()
+            Dim itemNet As Integer = Integer.Parse(command.ExecuteScalar().ToString())
+
+            '入庫数を計算
+            Dim inventory As Integer = itemNet * deliveryQuantityInfo
+
+            ' iteminventoryテーブルにitem_numberが存在するか確認
+            query = "SELECT inventory FROM iteminventory WHERE item_number = @itemNumber"
+            command = New NpgsqlCommand(query, conn)
+            command.Parameters.AddWithValue("@itemNumber", itemNumber)
+
+            Dim existingInventory As Object = command.ExecuteScalar()
+
+            If existingInventory IsNot Nothing Then
+                ' 既存の在庫が存在する場合、在庫を更新
+                Dim newInventory As Integer = Integer.Parse(existingInventory.ToString()) + inventory
+                query = "UPDATE iteminventory SET inventory = @newInventory, time_stamp = @timeStamp WHERE item_number = @itemNumber"
+                command = New NpgsqlCommand(query, conn)
+                command.Parameters.AddWithValue("@newInventory", newInventory)
+                command.Parameters.AddWithValue("@timeStamp", DateTime.Now)
+                command.Parameters.AddWithValue("@itemNumber", itemNumber)
+            Else
+                ' 既存の在庫が存在しない場合、新しいエントリを追加
+                query = "INSERT INTO iteminventory (item_number, inventory, display_flg, time_stamp) VALUES (@itemNumber, @inventory, @displayFlg, @timeStamp)"
+                command = New NpgsqlCommand(query, conn)
+                command.Parameters.AddWithValue("@itemNumber", itemNumber)
+                command.Parameters.AddWithValue("@inventory", inventory)
+                command.Parameters.AddWithValue("@displayFlg", True)
+                command.Parameters.AddWithValue("@timeStamp", DateTime.Now)
+            End If
+
+            command.ExecuteNonQuery()
+
+        End Using
+
         MessageBox.Show("登録完了しました")
-        'データベース接続を閉じる
-        psql.sqlCl()
     End Sub
-    '出庫処理
     Private Sub AddInventoryUsed(itemNumber As Integer)
-        '出庫数の取得
-        Dim inventoryUsed As Integer = Integer.Parse(usedQuantity.Text)
+        '数量情報の取得
+        Dim usedQuantityInfo As Integer = Integer.Parse(usedQuantity.Text)
 
-        'データベース接続
-        psql.sqlSt()
-        'SQLクエリ 
-        Dim query As String = "SELECT item_net FROM iteminfo WHERE item_number = @itemNumber"
-        Dim command As New NpgsqlCommand(query, psql.pgsqlCon)
-        command.Parameters.AddWithValue("@itemNumber", itemNumber)
+        'データベース接続文字列の設定
+        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        Using conn As New NpgsqlConnection(connString)
+            conn.Open()
 
-        Dim itemNet As Integer = Integer.Parse(command.ExecuteScalar().ToString())
-
-        'SQLクエリ　在庫数
-        Dim query_inv As String = "SELECT inventory FROM iteminventory WHERE item_number = @itemNumber"
-        command = New NpgsqlCommand(query_inv, psql.pgsqlCon)
-        command.Parameters.AddWithValue("@itemNumber", itemNumber)
-
-        Dim existingInventory As Object = command.ExecuteScalar()
-
-        If existingInventory IsNot Nothing Then
-            ' 既存の在庫が存在する場合、在庫を更新
-            Dim newInventory As Integer = Integer.Parse(existingInventory.ToString()) - inventoryUsed
-            'SQLクエリ 在庫更新
-            Dim query_update As String = "UPDATE iteminventory SET inventory = @newInventory, time_stamp = @timeStamp WHERE item_number = @itemNumber"
-            command = New NpgsqlCommand(query_update, psql.pgsqlCon)
-            command.Parameters.AddWithValue("@newInventory", newInventory)
-            command.Parameters.AddWithValue("@timeStamp", DateTime.Now)
+            'iteminfoテーブルからitem_netを取得
+            Dim query As String = "SELECT item_net FROM iteminfo WHERE item_number = @itemNumber"
+            Dim command As New NpgsqlCommand(query, conn)
             command.Parameters.AddWithValue("@itemNumber", itemNumber)
-        Else
-            ' 既存の在庫が存在しない場合、新しいエントリを追加
-            MessageBox.Show("在庫の存在しない商品です。入庫情報の登録からお願いします")
-            End
-        End If
 
-        command.ExecuteNonQuery()
+            Dim itemNet As Integer = Integer.Parse(command.ExecuteScalar().ToString())
+
+            '出庫数を計算
+            Dim inventoryUsed As Integer = itemNet * usedQuantityInfo
+
+            ' iteminventoryテーブルにitem_numberが存在するか確認
+            query = "SELECT inventory FROM iteminventory WHERE item_number = @itemNumber"
+            command = New NpgsqlCommand(query, conn)
+            command.Parameters.AddWithValue("@itemNumber", itemNumber)
+
+            Dim existingInventory As Object = command.ExecuteScalar()
+
+            If existingInventory IsNot Nothing Then
+                ' 既存の在庫が存在する場合、在庫を更新
+                Dim newInventory As Integer = Integer.Parse(existingInventory.ToString()) - inventoryUsed
+                query = "UPDATE iteminventory SET inventory = @newInventory, time_stamp = @timeStamp WHERE item_number = @itemNumber"
+                command = New NpgsqlCommand(query, conn)
+                command.Parameters.AddWithValue("@newInventory", newInventory)
+                command.Parameters.AddWithValue("@timeStamp", DateTime.Now)
+                command.Parameters.AddWithValue("@itemNumber", itemNumber)
+            Else
+                ' 既存の在庫が存在しない場合、新しいエントリを追加
+                MessageBox.Show("在庫の存在しない商品です。入庫情報の登録からお願いします")
+                End
+            End If
+
+            command.ExecuteNonQuery()
+
+        End Using
+
         MessageBox.Show("登録完了しました")
-        'データベース接続を閉じる
-        psql.sqlCl()
-
     End Sub
 
     Private Sub cahngeButton_Click(sender As Object, e As EventArgs) Handles cahngeButton.Click
