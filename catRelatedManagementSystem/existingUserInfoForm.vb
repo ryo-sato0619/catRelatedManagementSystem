@@ -3,15 +3,15 @@ Imports Npgsql
 
 Public Class existingUserInfoForm
     Private Sub existingUserInfoForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'データベース接続文字列の設定
-        Dim connString As String = "Host=localhost;Username=postgres;Password=test;Database=catdb"
+        'データベース接続を開始
+        psql.sqlSt()
+
         'SQLクエリの設定
         Dim query As String = "SELECT number FROM userinfo WHERE display_flg = TRUE" 'userinfoテーブルからnumber列を取得
 
         'データベース接続とデータ取得
-        Using conn As New NpgsqlConnection(connString)
-            Dim cmd As New NpgsqlCommand(query, conn)
-            conn.Open()
+        'Using conn As New NpgsqlConnection(connString)
+        Using cmd As New NpgsqlCommand(query, psql.pgsqlCon)
 
             Dim reader As NpgsqlDataReader = cmd.ExecuteReader()
             While reader.Read()
@@ -19,10 +19,10 @@ Public Class existingUserInfoForm
                 Dim userNumber As String = reader("number").ToString()
                 userNo_change.Items.Add(userNumber)
             End While
-
             reader.Close()
-
         End Using
+        'データベース接続を閉じる
+        psql.sqlCl()
     End Sub
 
     Private Sub userNo_change_SelectedIndexChanged(sender As Object, e As EventArgs) Handles userNo_change.SelectedIndexChanged
