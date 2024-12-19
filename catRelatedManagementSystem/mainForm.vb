@@ -364,4 +364,9 @@ Public Class mainForm
         existingItemInfoForm.Show()
     End Sub
 
+    Private Sub userInfoChangeButton_Click(sender As Object, e As EventArgs) Handles userInfoChangeButton.Click
+        '変更登録用フォームを開く
+        existingUserInfoForm.Show()
+    End Sub
+
 End Class

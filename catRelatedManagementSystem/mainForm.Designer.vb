@@ -64,6 +64,7 @@ Partial Class mainForm
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.userInfoChangeButton = New System.Windows.Forms.Button()
         Me.ButtonCannel_user = New System.Windows.Forms.Button()
         Me.ButtonOK_user = New System.Windows.Forms.Button()
         Me.CheckBoxPermission = New System.Windows.Forms.CheckBox()
@@ -72,7 +73,6 @@ Partial Class mainForm
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.userInfoChangeButton = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -535,6 +535,16 @@ Partial Class mainForm
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "ユーザー登録"
         '
+        'userInfoChangeButton
+        '
+        Me.userInfoChangeButton.Font = New System.Drawing.Font("Meiryo UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.userInfoChangeButton.Location = New System.Drawing.Point(671, 300)
+        Me.userInfoChangeButton.Name = "userInfoChangeButton"
+        Me.userInfoChangeButton.Size = New System.Drawing.Size(144, 42)
+        Me.userInfoChangeButton.TabIndex = 8
+        Me.userInfoChangeButton.Text = "登録内容変更"
+        Me.userInfoChangeButton.UseVisualStyleBackColor = True
+        '
         'ButtonCannel_user
         '
         Me.ButtonCannel_user.Location = New System.Drawing.Point(481, 300)
@@ -604,16 +614,6 @@ Partial Class mainForm
         Me.Label8.Size = New System.Drawing.Size(46, 23)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "名前"
-        '
-        'userInfoChangeButton
-        '
-        Me.userInfoChangeButton.Font = New System.Drawing.Font("Meiryo UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.userInfoChangeButton.Location = New System.Drawing.Point(671, 300)
-        Me.userInfoChangeButton.Name = "userInfoChangeButton"
-        Me.userInfoChangeButton.Size = New System.Drawing.Size(144, 42)
-        Me.userInfoChangeButton.TabIndex = 8
-        Me.userInfoChangeButton.Text = "登録内容変更"
-        Me.userInfoChangeButton.UseVisualStyleBackColor = True
         '
         'mainForm
         '

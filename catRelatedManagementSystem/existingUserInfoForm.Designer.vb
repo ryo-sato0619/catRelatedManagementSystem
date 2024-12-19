@@ -31,12 +31,14 @@ Partial Class existingUserInfoForm
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.userNo_change = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'userInfoDeleteButton
         '
         Me.userInfoDeleteButton.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.userInfoDeleteButton.Location = New System.Drawing.Point(667, 292)
+        Me.userInfoDeleteButton.Location = New System.Drawing.Point(279, 333)
         Me.userInfoDeleteButton.Name = "userInfoDeleteButton"
         Me.userInfoDeleteButton.Size = New System.Drawing.Size(144, 42)
         Me.userInfoDeleteButton.TabIndex = 17
@@ -45,26 +47,26 @@ Partial Class existingUserInfoForm
         '
         'ButtonCannel_userChange
         '
-        Me.ButtonCannel_userChange.Location = New System.Drawing.Point(477, 292)
+        Me.ButtonCannel_userChange.Location = New System.Drawing.Point(620, 333)
         Me.ButtonCannel_userChange.Name = "ButtonCannel_userChange"
         Me.ButtonCannel_userChange.Size = New System.Drawing.Size(144, 42)
         Me.ButtonCannel_userChange.TabIndex = 16
-        Me.ButtonCannel_userChange.Text = "キャンセル"
+        Me.ButtonCannel_userChange.Text = "閉じる"
         Me.ButtonCannel_userChange.UseVisualStyleBackColor = True
         '
         'ButtonOK_userChange
         '
-        Me.ButtonOK_userChange.Location = New System.Drawing.Point(293, 292)
+        Me.ButtonOK_userChange.Location = New System.Drawing.Point(452, 333)
         Me.ButtonOK_userChange.Name = "ButtonOK_userChange"
         Me.ButtonOK_userChange.Size = New System.Drawing.Size(144, 42)
         Me.ButtonOK_userChange.TabIndex = 15
-        Me.ButtonOK_userChange.Text = "登録"
+        Me.ButtonOK_userChange.Text = "変更登録"
         Me.ButtonOK_userChange.UseVisualStyleBackColor = True
         '
         'CheckBoxPermission_change
         '
         Me.CheckBoxPermission_change.AutoSize = True
-        Me.CheckBoxPermission_change.Location = New System.Drawing.Point(248, 198)
+        Me.CheckBoxPermission_change.Location = New System.Drawing.Point(250, 239)
         Me.CheckBoxPermission_change.Name = "CheckBoxPermission_change"
         Me.CheckBoxPermission_change.Size = New System.Drawing.Size(108, 27)
         Me.CheckBoxPermission_change.TabIndex = 14
@@ -73,7 +75,7 @@ Partial Class existingUserInfoForm
         '
         'textPassword_change
         '
-        Me.textPassword_change.Location = New System.Drawing.Point(248, 118)
+        Me.textPassword_change.Location = New System.Drawing.Point(250, 159)
         Me.textPassword_change.Name = "textPassword_change"
         Me.textPassword_change.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.textPassword_change.Size = New System.Drawing.Size(293, 30)
@@ -81,7 +83,7 @@ Partial Class existingUserInfoForm
         '
         'textUserName_change
         '
-        Me.textUserName_change.Location = New System.Drawing.Point(248, 50)
+        Me.textUserName_change.Location = New System.Drawing.Point(250, 91)
         Me.textUserName_change.Name = "textUserName_change"
         Me.textUserName_change.Size = New System.Drawing.Size(293, 30)
         Me.textUserName_change.TabIndex = 11
@@ -89,7 +91,7 @@ Partial Class existingUserInfoForm
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(57, 198)
+        Me.Label10.Location = New System.Drawing.Point(59, 239)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(100, 23)
         Me.Label10.TabIndex = 12
@@ -98,7 +100,7 @@ Partial Class existingUserInfoForm
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(57, 125)
+        Me.Label9.Location = New System.Drawing.Point(59, 166)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(81, 23)
         Me.Label9.TabIndex = 10
@@ -107,11 +109,28 @@ Partial Class existingUserInfoForm
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(57, 57)
+        Me.Label8.Location = New System.Drawing.Point(59, 98)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(46, 23)
         Me.Label8.TabIndex = 9
         Me.Label8.Text = "名前"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(59, 36)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(106, 23)
+        Me.Label1.TabIndex = 18
+        Me.Label1.Text = "ユーザー番号"
+        '
+        'userNo_change
+        '
+        Me.userNo_change.FormattingEnabled = True
+        Me.userNo_change.Location = New System.Drawing.Point(250, 28)
+        Me.userNo_change.Name = "userNo_change"
+        Me.userNo_change.Size = New System.Drawing.Size(120, 31)
+        Me.userNo_change.TabIndex = 19
         '
         'existingUserInfoForm
         '
@@ -119,6 +138,8 @@ Partial Class existingUserInfoForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SkyBlue
         Me.ClientSize = New System.Drawing.Size(880, 575)
+        Me.Controls.Add(Me.userNo_change)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.userInfoDeleteButton)
         Me.Controls.Add(Me.ButtonCannel_userChange)
         Me.Controls.Add(Me.ButtonOK_userChange)
@@ -146,4 +167,6 @@ Partial Class existingUserInfoForm
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents userNo_change As ComboBox
 End Class

@@ -76,7 +76,7 @@ Public Class existingItemInfoForm
         'iteminfoテーブルからデータを取得
         Dim itemInfo As ItemInfo = GetItemInfo(itemNo)
 
-        '変更を保存する場合は、データベースへの更新処理を追加
+        'データベースへの更新処理
         UpdateItemInfo(itemInfo)
 
     End Sub
@@ -89,10 +89,10 @@ Public Class existingItemInfoForm
             Using cmd As New NpgsqlCommand(query, conn)
                 'パラメータの設定
                 cmd.Parameters.AddWithValue("@version_number", itemInfo.version_number)
-                cmd.Parameters.AddWithValue("@item_name", itemInfo.item_name)
-                cmd.Parameters.AddWithValue("@item_money", itemInfo.item_money)
-                cmd.Parameters.AddWithValue("@item_net", itemInfo.item_net)
-                cmd.Parameters.AddWithValue("@item_remarks", itemInfo.item_remarks)
+                cmd.Parameters.AddWithValue("@item_name", textItemName_change.Text)
+                cmd.Parameters.AddWithValue("@item_money", Convert.ToInt32(mtextMoney_change.Text))
+                cmd.Parameters.AddWithValue("@item_net", Convert.ToInt32(mtextNet_change.Text))
+                cmd.Parameters.AddWithValue("@item_remarks", textRemarks_change.Text)
                 cmd.Parameters.AddWithValue("@time_stamp", Now())
                 cmd.Parameters.AddWithValue("@itemNo", itemInfo.item_number)
 
